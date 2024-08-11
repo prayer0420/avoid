@@ -19,7 +19,7 @@ public class ObjectManager : MonoBehaviour
     void Update()
     {
         sumtTime += Time.time;
-        Debug.Log(sumtTime);
+        //Debug.Log(sumtTime);
         if(sumtTime > spawnTime)
         {
             Spawn();   
