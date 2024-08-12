@@ -21,7 +21,9 @@ public class Player : MonoBehaviour
             if (hp < 0)
             {
               Debug.Log("end");
+              moveSpeed = 0;
               uIManager.Canvas.gameObject.SetActive(true);
+
             }
 
         }
@@ -39,7 +41,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        Hp = 100;
+        Hp = 10;
         moveDir = 0;
         moveSpeed = 10.0f;
     }
