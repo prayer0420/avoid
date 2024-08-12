@@ -27,7 +27,8 @@ public class Trash : MonoBehaviour
 
         if (playerLayer == 1 << collision.gameObject.layer)
         {
-            Player.Instance.Hp -= 10;
+            Player player = collision.gameObject.GetComponent<Player>();
+            player.Hp -= 10;
         }
     }
 }

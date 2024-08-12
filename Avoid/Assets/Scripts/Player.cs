@@ -4,19 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private static Player instance;
-    public static Player Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<Player>();
-
-            }
-            return instance;
-        }
-    }
+    private UIManager uIManager;
 
     private int hp;
     public int Hp 
@@ -26,11 +14,24 @@ public class Player : MonoBehaviour
             return hp;
         }
         set
-        { 
+        {
             hp = value;
             Debug.Log(hp);
+
             if (hp < 0)
+            {
               Debug.Log("end");
+              uIManager.Canvas.gameObject.SetActive(true);
+            }
+
+        }
+    }
+    private void Awake()
+    {
+        uIManager = FindObjectOfType<UIManager>();  // UIManager를 찾아서 참조
+        if (uIManager == null)
+        {
+            Debug.LogError("UIManager를 찾을 수 없습니다!");
         }
     }
     public float moveDir;
@@ -43,14 +44,10 @@ public class Player : MonoBehaviour
         moveSpeed = 10.0f;
     }
 
-    // Update is called once per frame
     void Update()
     {
         moveDir = Input.GetAxis("Horizontal");
 
         transform.Translate(new Vector3(moveSpeed*moveDir * Time.deltaTime ,0,0));
-
     }
-
-
 }
