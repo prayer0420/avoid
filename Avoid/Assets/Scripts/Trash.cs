@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Trash : MonoBehaviour
 {
+    public int randomSpeed;
+
     void Start()
     {
     }
 
     void Update()
     {
-        
+        transform.position += Vector3.down * randomSpeed * Time.deltaTime;
+
     }
 
     // 체크할 레이어를 저장할 변수

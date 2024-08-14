@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        Hp = 10;
+        Hp = 100;
         moveDir = 0;
         moveSpeed = 10.0f;
     }

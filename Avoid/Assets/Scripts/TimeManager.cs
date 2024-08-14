@@ -29,6 +29,7 @@ public class TimeManager : MonoBehaviour
     public void ResetTime()
     {
         startTime = Time.time;
+        elpasedTime = Time.time - startTime;
     }
 
 
