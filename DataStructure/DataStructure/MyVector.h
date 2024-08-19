@@ -60,6 +60,11 @@ public:
 
     }
 
+    int Size()
+    {
+        return _size;
+    }
+
     void Reserve(int capacity)
     {
         assert(capacity > _capacity);

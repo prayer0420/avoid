@@ -1,18 +1,26 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\DataStructure\\",
+  "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\source\\repos\\DataStructure\\DataStructure\\DataStructure.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\BinarySearchTree.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\BinarySearchTree.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\DataStructure.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\DataStructure.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\source\\repos\\DataStructure\\DataStructure\\MyVector.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\MyVector.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\BinarySearchTree.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\BinarySearchTree.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\source\\repos\\DataStructure\\DataStructure\\MyList.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyList.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\MyList.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyVector.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\MyVector.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -31,38 +39,71 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MyList.h",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\DataStructure\\DataStructure\\MyList.h",
-              "RelativeDocumentMoniker": "DataStructure\\MyList.h",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\DataStructure\\DataStructure\\MyList.h",
-              "RelativeToolTip": "DataStructure\\MyList.h",
-              "ViewState": "AQIAAK4AAAAAAAAAAAAAAB4AAAAeAAAA",
+              "Title": "BinarySearchTree.h",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\BinarySearchTree.h",
+              "RelativeDocumentMoniker": "DataStructure\\BinarySearchTree.h",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\BinarySearchTree.h",
+              "RelativeToolTip": "DataStructure\\BinarySearchTree.h",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABcAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-11T22:51:25.625Z"
+              "WhenOpened": "2024-08-18T12:32:56.041Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
+              "Title": "MyList.h",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyList.h",
+              "RelativeDocumentMoniker": "DataStructure\\MyList.h",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyList.h",
+              "RelativeToolTip": "DataStructure\\MyList.h",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAADMAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-11T22:51:25.625Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "MyVector.h",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\DataStructure\\DataStructure\\MyVector.h",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyVector.h",
               "RelativeDocumentMoniker": "DataStructure\\MyVector.h",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\DataStructure\\DataStructure\\MyVector.h",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyVector.h",
               "RelativeToolTip": "DataStructure\\MyVector.h",
-              "ViewState": "AQIAAFcAAAAAAAAAAAAAAGgAAAAFAAAA",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAGcAAAAjAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-08-11T22:50:54.631Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "DataStructure.cpp",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\DataStructure\\DataStructure\\DataStructure.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\DataStructure.cpp",
               "RelativeDocumentMoniker": "DataStructure\\DataStructure.cpp",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\DataStructure\\DataStructure\\DataStructure.cpp",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\DataStructure.cpp",
               "RelativeToolTip": "DataStructure\\DataStructure.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "ViewState": "AQIAADIAAAAAAAAAAAAmwEsAAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-08-11T22:50:25.391Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BinarySearchTree.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\BinarySearchTree.cpp",
+              "RelativeDocumentMoniker": "DataStructure\\BinarySearchTree.cpp",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\BinarySearchTree.cpp",
+              "RelativeToolTip": "DataStructure\\BinarySearchTree.cpp",
+              "ViewState": "AQIAALoAAAAAAAAAAAAswMQAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-18T12:42:13.366Z",
               "EditorCaption": ""
             }
           ]
