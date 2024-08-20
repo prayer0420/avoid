@@ -3,87 +3,61 @@
 #include <Windows.h>
 using namespace std; 
 
-
-
-
-Node* BinarySearchTree::Search(Node* SearchNode, int key)
+//추가
+void BinarySearchTree::Insert(int value)
 {
-	// 탐색노드가 null이거나, 탐색노드의 키가 찾으려는 키와 일치하는 경우
-	if (SearchNode == nullptr || key == SearchNode->key)
-		return SearchNode;
-
-	//찾고자 하는 키가 현재 탐색 노드의 키보다 작다면
-	//현재 탐색노드의 왼쪽 자식노드를 탐색
-	if (key < SearchNode->key)
-	{
-		return Search(SearchNode->left, key);
-	}
-
-	// 찾고자 하는 키가 현재 노드의 키보다 크다면 오른쪽 서브트리에서 검색
-	else if (key > SearchNode->key)
-	{
-		return Search(SearchNode->right, key);
-	}
-}
-
-void BinarySearchTree::Insert(int key)
-{
-	//새롭게 넣을 노드
+	//추가할 노드 셋팅
 	Node* newNode = new Node();
-	//새롭게 넣을 노드의 값 셋팅
-	newNode->key = key;
+	newNode->value = value;
 
-	//아무값도 없었다면(처음)
-	if (_root == nullptr)
+	//처음이라면
+	if (nullptr == _root)
 	{
-		//루트 노드를 새롭게 추가한 노드로 설정
 		_root = newNode;
 		return;
 	}
 
-	// 비교 노드
+	//탐색노드설정
 	Node* CompareNode = _root;
-	Node* parent = nullptr;	
-
-	//비교노드가 null이 될때까지 반복
-	while (CompareNode != nullptr)
+	//부모 설정
+	Node* parent = nullptr;
+	
+	//탐색 노드가 null일때까지 계속 반복
+	while (CompareNode)
 	{
-		//최초 부모는 자기 자신
 		parent = CompareNode;
-
-		//새롭게 넣을 노드가 비교노드보다 작다면 
-		if (newNode->key < CompareNode->key)
-		{
-			//비교노드를 비교노드의 왼쪽자식 노드로 설정
+		if (value < newNode->value)
 			CompareNode = CompareNode->left;
-		}
-
-		//새롭게 넣을 노드가 비교노드보다 크다면
-		else if (newNode->key > CompareNode->key)
-		{
-			//비교노드를 비교노드의 오른쪽 자식 노드로 설정
+		else
 			CompareNode = CompareNode->right;
-		}
 	}
+	newNode->parent = parent;
 
-	newNode->parent = parent; 
-
-	if (newNode->key > parent->key)
-	{
-		parent->right= newNode;
-	}
-	else if (newNode->key < parent->key)
-	{
+	if (value < parent->value)
 		parent->left = newNode;
-	}
+	else if(value > parent->value)
+		parent->right = newNode;
 }
 
-//트리중 가장 작은 값(계속 왼쪽으로 이동하면됨)
+Node* BinarySearchTree::Search(Node* SearchNode, int value)
+{
+	//끝까지 못찾은 경우 또는 찾은 경우
+	if (SearchNode == nullptr || value == SearchNode->value)
+		return SearchNode;
+
+
+	if (value < SearchNode->value)
+		return Search(SearchNode->left, value);
+	else if(value > SearchNode->value)
+		return Search(SearchNode->right, value);
+}
+
 Node* BinarySearchTree::Min(Node* node)
 {
 	if (node == nullptr)
 		return nullptr;
 
+	//node->left가 null일때까지 계속~
 	while (node->left)
 	{
 		node = node->left;
@@ -91,131 +65,104 @@ Node* BinarySearchTree::Min(Node* node)
 	return node;
 }
 
-//트리중 가장 작은 값(계속 오른쪽으로 이동하면됨)
 Node* BinarySearchTree::Max(Node* node)
 {
-
-	if (node == nullptr)
-		return nullptr;
-
-	while (node->right)
-	{
+	while (node && node->right)
 		node = node->right;
-	}
 	return node;
 }
 
+//다음 큰 값 찾기
 Node* BinarySearchTree::Next(Node* node)
 {
-	//오른쪽자식중 제일 작은값을 반환
+	//node의 오른쪽 중에 가장 작은값 찾기
 	if (node->right)
 		return Min(node->right);
-	//오른쪽 자식이 없다면, 왼쪽 자식 중 제일 큰 값
-	Node* parent = node->parent;
-	//나를 왼쪽자식으로 들고있는 조상 님을 만날때까지 올라감
-	while (parent && node == parent->right)
+
+	//node->right가 null이라면, 부모중에 나를 left로 갖는 부모를 찾음
+	Node* parentNode = node->parent;
+	while (parentNode && node == parentNode->right)
 	{
-		node = parent;
-		parent = parent->parent;
+		//parent->left를 찾으면 return
+		node = parentNode;
+		parentNode = parentNode->parent;
 	}
-	return parent;
+	return parentNode;
 }
 
 Node* BinarySearchTree::Prev(Node* node)
 {
-	//왼쪽 자식이 nullptr이 아니라면
-	//왼쪽 자식 중 제일 큰 값을 찾음
 	if (node->left)
 		return Max(node->left);
 
-	//왼쪽 자식이 nullptr이라면
-	Node* parent = node->parent;
-	//나를 오른쪽 자식으로 가지는 부모를 찾을때 까지 반복 순회
-	while (parent&&node==parent->left)
+	Node* parentNode = node->parent;
+	while (parentNode && node == node->left)
 	{
-		node= parent;
-		parent = parent->parent;
+		//node.right일때 return
+		node = parentNode;
+		parentNode = parentNode->parent;
 	}
-	return parent;
+
+	return parentNode;
 }
 
 void BinarySearchTree::Replace(Node* deleteNode, Node* replaceNode)
 {
-	//삭제하려는 노드가 루트노드일때
 	if (deleteNode->parent == nullptr)
 		_root = replaceNode;
-
-	//부모가 있는 왼쪽 자식일때
+	//자식이 1개만 있을때
+	//부모가 있는 왼쪽 자식 일때
 	else if (deleteNode == deleteNode->parent->left)
 		deleteNode->parent->left = replaceNode;
-	//부모가 있는 오른쪽 자식일때
+    //자식이 오른쪽에만 있을때
 	else
 		deleteNode->parent->right = replaceNode;
-	//재조정할 노드가 nullptr만 아니라면, 부모노드를 삭제할 노드의 부모노드로 설정
-	if (replaceNode)
+
+	if(replaceNode)
 		replaceNode->parent = deleteNode->parent;
-
-	delete deleteNode;
 }
 
-void BinarySearchTree::Delete(int key)
+void BinarySearchTree::Delete(int value)
 {
-	//루트노드부터 키에 해당하는 값을 쭉 찾아서~
-	Node* deleteNode = Search(_root, key);
-	//삭제
-	Delete(deleteNode);
-
+	Node* node = Search(_root, value);
+	Delete(node);
 }
 
-void BinarySearchTree::Delete(Node* node)
+void BinarySearchTree::Delete(Node* deleteNode)
 {
-	if (node == nullptr)
+	if (deleteNode == nullptr)
 		return;
 
-	//왼쪽 자식이 없는경우(오른쪽 자식만 있으면)
-	if (node->left == nullptr)
+	//자식이 왼쪽에만 있을때
+	if (deleteNode->right == nullptr)
 	{
-		Replace(node, node->right);
+		Replace(deleteNode, deleteNode->left);
 	}
-	//오른쪽 자식이 없는 경우(왼쪽 자식만 있으면)
-	else if (node->right == nullptr)
+	//자식이 오른쪽에만 있을때
+	else if (deleteNode->left== nullptr)
 	{
-		Replace(node, node->left);
+		Replace(deleteNode, deleteNode->right);
 	}
 
-	//자식이 2개있는 경우
-	else
+	//자식이 2명 있을때
+	else 
 	{
-		//삭제하려는 노드의 다음노드 찾아서 
-		Node* nextNode = Next(node);
-		//복사해놓고
-		node->key = nextNode->key;
+		Node* nextNode = Next(deleteNode);
+		deleteNode->value = nextNode->value;
 		Delete(nextNode);
 	}
+	delete deleteNode;
 }
 
 void BinarySearchTree::Print()
 {
-	//이진트리에서 가장 작은 값을 찾음
+	//제일 작은 값 찾기
 	Node* PrintNode = Min(_root);
-	
-	while (PrintNode)
-	{
-		cout << PrintNode->key << " ";
-		Node* node = Next(PrintNode);
-		PrintNode = node;
-	}
-}
-
-void BinarySearchTree::ReversePrint()
-{
-	//이진트리에서 가장 큰 값을 찾음
-	Node* PrintNode = Max(_root);
 
 	while (PrintNode)
 	{
-		cout << PrintNode->key << " ";
-		Node* node = Prev(PrintNode);
-		PrintNode = node;
+		cout << PrintNode->value << " ";
+		PrintNode = Next(PrintNode);
 	}
 }
+

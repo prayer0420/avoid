@@ -35,7 +35,7 @@ public class UIManager : MonoBehaviour
     {
         RetryButton.onClick.AddListener(RetryButtonOnClick);
         ExitButton.onClick.AddListener(ExitButtonOnClick);
-        StageManager.Instance.OnStageCleared += ShowStageClearMessage;
+        //StageManager.Instance.OnStageCleared += ShowStageClearMessage;
         Debug.Log($"{this.GetType().Name}.{nameof(ShowStageClearMessage)} has subscribed to OnStageChanged.");
 
     }

@@ -2,10 +2,10 @@
 
 struct Node
 {
-	Node* parent = nullptr;
-	Node* left = nullptr;
-	Node* right = nullptr;
-	int key = 0;
+	int value;
+	Node* right;
+	Node* left;
+	Node* parent;
 };
 
 
@@ -14,33 +14,25 @@ class BinarySearchTree
 
 public:
 
+	//추가
+	void Insert(int value);
+	//탐색
 	Node* Search(Node* SearchNode, int key);
 
-	void Insert(int key);
-	
-	//트리중 가장 작은 값(계속 왼쪽으로 이동하면됨)
+	//삭제
 	Node* Min(Node* node);
-	//트리중 가장 작은 값(계속 오른쪽으로 이동하면됨)
 	Node* Max(Node* node);
-	
 	Node* Next(Node* node);
-
 	Node* Prev(Node* node);
-
-	//삭제할 노드가 자식이 1개 있는 경우
 	void Replace(Node* deleteNode, Node* replaceNode);
-	//키값으로 삭제
-	void Delete(int key);
-	//노드로 삭제
-	void Delete(Node* node);
+
+	void Delete(int value);
+	void Delete(Node* deleteNode);
 
 	void Print();
-	void ReversePrint();
 
 private:
-
-	Node* _root = nullptr;
-
+	Node* _root;
 
 };
 

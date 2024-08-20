@@ -4,7 +4,6 @@
 #include <iostream>
 #include "MyList.h"
 #include "MyVector.h"
-#include "MyTree.h"
 #include "BinarySearchTree.h"
 using namespace std;
 
@@ -78,9 +77,11 @@ int main()
     BST->Insert(8);
     BST->Insert(15);
     BST->Insert(30);
-    
+    //BST->Delete(20);
+
+
     //BST->ReversePrint();
-    BST->Print();
+    //BST->Print();
 
 
 #pragma endregion
