@@ -12,8 +12,9 @@ public class Player : MonoBehaviour
 
     //현재 레벨
     public int _level { get; private set; }
+    public int Item {  get; private set; }
 
-
+    public int money { get; set; }
     //레벨업에 필요한 경험치 수치
     //private int expToLevelUp2 = 30;
     //private int expToLevelUp3 = 60;
@@ -23,8 +24,6 @@ public class Player : MonoBehaviour
     //배열로 Level 1~ Level 7까지 값 셋팅
     //ex) level1에서 레벨업하려면 30이 필요하다는 뜻
     private int[] expToLevelUp = { 0, 30, 60, 90, 130, 180, 270 };
-
-
 
     private int hp;
     public int Hp 
@@ -66,7 +65,7 @@ public class Player : MonoBehaviour
         moveDirX = 0;
         moveDirY = 0;
         moveSpeed = 10.0f;
-
+        money = 0;
         GameManager.Instance.OnPlayerKillMonster += OnPlayerKillGrantExperience;
     }
 
@@ -76,6 +75,19 @@ public class Player : MonoBehaviour
         moveDirY = Input.GetAxis("Vertical");
 
         transform.Translate(new Vector3(moveSpeed*moveDirX * Time.deltaTime , moveSpeed * moveDirY * Time.deltaTime, 0));
+
+        UIManager.Instance.moneyText.text = $"Money: {money}";
+
+        UIManager.Instance.ExpText.text = $"Exp: {_AllExpCount} / {expToLevelUp[_level]}";
+
+        UIManager.Instance.LevelText.text = $"Level: {_level}";
+
+    }
+
+    //돈을 주웠을때
+    public void GetMoney()
+    {
+
     }
 
     //플레이어가 몬스터를 죽였을때 부여하는 경험치 함수
@@ -83,6 +95,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log("경험치 획득");
         _AllExpCount += monster.expPoints;
+        
         //경험치를 획득할 때 마다 레벨업이 가능한지 확인하는 함수 추가
         CheckLevel();
     }
@@ -93,11 +106,13 @@ public class Player : MonoBehaviour
         //현재 경험치총량이 현재 레벨에서 레벨업에 필요한 경험치보다 같거나 크다면 
         while(_level < expToLevelUp.Length && _AllExpCount>= expToLevelUp[_level])
         {
-            //레벨업!
-            _level++;
             //레벨업에 필요한 경험치만큼을 빼줌
             _AllExpCount -= expToLevelUp[_level];
+            //레벨업!
+            _level++;
             Debug.Log("레벨 업!");
         }
     }
+
+
 }

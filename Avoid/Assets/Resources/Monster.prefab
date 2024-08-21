@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 3049693321882233575}
   - component: {fileID: 5708717455086625352}
   m_Layer: 20
-  m_Name: Trash
-  m_TagString: Untagged
+  m_Name: Monster
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   randomSpeed: 0
+  expPoints: 0
+  dropItemArr: 0000000001000000
   groundLayer:
     serializedVersion: 2
     m_Bits: 32768

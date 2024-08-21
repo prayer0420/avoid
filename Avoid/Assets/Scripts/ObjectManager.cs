@@ -16,6 +16,9 @@ public class ObjectManager : MonoBehaviour
         }
     }
 
+    Monster _Monster;
+    public DropItem[] dropItemArr;
+
     //생성할 프리팹
     public GameObject[] prefabs;
     //생성할 위치
@@ -32,6 +35,8 @@ public class ObjectManager : MonoBehaviour
     {
         spawnTime = 2.0f;
         capacity = 0;
+        dropItemArr = (DropItem[])System.Enum.GetValues(typeof(DropItem));
+        _Monster = FindObjectOfType<Monster>(); 
 
     }
     // Update is called once per frame
@@ -47,8 +52,6 @@ public class ObjectManager : MonoBehaviour
             sumtTime = 0;
             
         }
-
-
     }
 
     void Spawn()
@@ -69,5 +72,20 @@ public class ObjectManager : MonoBehaviour
         }
     }
 
+    public void AllDelete()
+    {
+        GameObject[] monsters = GameObject.FindGameObjectsWithTag("Monster");
+        foreach (GameObject monster in monsters)
+        {
+            ObjectManager.Instance.capacity--;
+            int random = UnityEngine.Random.RandomRange(0, dropItemArr.Length);
+            DropItem dropitem = dropItemArr[random];
+            //아이템 드롭하기
+            Monster _monster = monster.GetComponent<Monster>();
+            _monster.DropedItem(dropitem);
+            GameManager.Instance.OnPlayerKillMonster(_monster);
+            Destroy(monster.gameObject);
+        }
+    }
 }
 

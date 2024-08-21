@@ -26,6 +26,12 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI elapsedTimeText;
     public TextMeshProUGUI stageText;
     float elapsedTime;
+    public TextMeshProUGUI moneyText;
+    public TextMeshProUGUI ItemCountText;
+    public Image ItemUI;
+    public TextMeshProUGUI LevelText;
+    public TextMeshProUGUI ExpText;
+
     private void Awake()
     {
         Canvas.gameObject.SetActive(false);
