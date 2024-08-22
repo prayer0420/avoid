@@ -20,10 +20,50 @@ public class Monster : MonoBehaviour
         dropItemArr = (DropItem[])System.Enum.GetValues(typeof(DropItem));
     }
 
+    private int hp = 30;
+    public int Hp
+    {
+        get
+        {
+            return hp;
+        }
+        set 
+        { 
+            hp = value; 
+            if(hp<0)
+            {
+                hp = 0;
+                Debug.Log("DIe");
+                OnDie();
+            }
+        }
+    }
+
     void Update()
     {
        // transform.position += Vector3.down * randomSpeed * Time.deltaTime;
+    }
 
+    public void OnDie()
+    {
+        //플레이어가 이겼음을 구독자들에게 알림
+        //플레이어는 이겼으므로, 구독자에서 경험치를 올리자.
+        GameManager.Instance.OnPlayerKillMonster(this);
+
+
+        //몬스터는 랜덤으로 돈, 아이템(필살기)을 떨굼
+        //랜덤 돌려서 드롭할 아이템 결정하기
+        int random = UnityEngine.Random.RandomRange(0, dropItemArr.Length);
+        DropItem dropitem = dropItemArr[random];
+        //아이템 드롭하기
+        DropedItem(dropitem);
+
+
+        //플레이어가 적과 충돌하면 플레이어가 이긴 것으로, 몬스터를 파괴함
+        Debug.Log("destroy");
+        //몬스터의 총 수 1개 줄임
+        ObjectManager.Instance.capacity--;
+        Destroy(this.gameObject);
     }
 
     // 체크할 레이어를 저장할 변수
@@ -35,25 +75,7 @@ public class Monster : MonoBehaviour
     {
         if (playerLayer == 1 << collision.gameObject.layer)
         {
-            Player player = collision.gameObject.GetComponent<Player>();
-            //플레이어가 이겼음을 구독자들에게 알림
-            //플레이어는 이겼으므로, 구독자에서 경험치를 올리자.
-            GameManager.Instance.OnPlayerKillMonster(this);
-
-
-            //몬스터는 랜덤으로 돈, 아이템(필살기)을 떨굼
-            //랜덤 돌려서 드롭할 아이템 결정하기
-            int random = UnityEngine.Random.RandomRange(0, dropItemArr.Length);
-            DropItem dropitem = dropItemArr[random];
-            //아이템 드롭하기
-            DropedItem(dropitem);
-
-
-            //플레이어가 적과 충돌하면 플레이어가 이긴 것으로, 몬스터를 파괴함
-            Debug.Log("destroy");
-            //몬스터의 총 수 1개 줄임
-            ObjectManager.Instance.capacity--;
-            Destroy(this.gameObject);
+            Debug.Log("DIe");
         }
     }
 
