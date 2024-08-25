@@ -5,6 +5,9 @@
 #include "MyList.h"
 #include "MyVector.h"
 #include "BinarySearchTree.h"
+#include "MyQueue.h"
+#include "MyStack.h"
+
 using namespace std;
 
 
@@ -70,21 +73,45 @@ int main()
 
 #pragma region BinarySearchTree
 
-    BinarySearchTree* BST = new BinarySearchTree();
-    BST->Insert(10);
-    BST->Insert(5);
-    BST->Insert(20);
-    BST->Insert(8);
-    BST->Insert(15);
-    BST->Insert(30);
+    //BinarySearchTree* BST = new BinarySearchTree();
+    //BST->Insert(10);
+    //BST->Insert(5);
+    //BST->Insert(20);
+    //BST->Insert(8);
+    //BST->Insert(15);
+    //BST->Insert(30);
     //BST->Delete(20);
-
 
     //BST->ReversePrint();
     //BST->Print();
+#pragma endregion
 
+
+#pragma region MyQueue
+
+    MyQueue myQ;
+    myQ.Enqueue(1);
+    myQ.Enqueue(2);
+    myQ.Enqueue(3);
+    myQ.Dequeue();
+    int a = myQ.Front();
 
 #pragma endregion
+
+#pragma region MyStack
+    MyStack myST;
+    myST.Push(1);
+    myST.Push(2);
+    myST.Push(3);
+    myST.Pop();
+    int b = myST.Top();
+
+#pragma endregion
+
+
+
+
+
 
 
 
