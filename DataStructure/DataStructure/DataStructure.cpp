@@ -14,54 +14,66 @@ using namespace std;
 int main()
 {
 //#pragma region myVector
-//    MyVector<int>* myVector = new MyVector<int>();
-//    MyVector<int>* myVector2 = new MyVector<int>();
-//    myVector->Add(1);
-//    myVector->Add(2);
-//    myVector->Add(3);
-//    myVector->Add(4);
-//    myVector->Add(5);
-//    myVector->Add(6);
+//	MyVector<int> myVector;
 //
-//    myVector2->Add(7);
-//    myVector2->Add(8);
-//    myVector2->Add(9);
+//	myVector.push_back(1);
+//	myVector.push_back(2);
+//	myVector.push_back(3);
+//	myVector.push_back(4);
+//	myVector.push_back(5);
 //
-//    myVector->AddRange(myVector2);
-//    myVector->Add(10);
+//	MyVector<int>::iterator it = myVector.begin();
+//	for (; it != myVector.end();)
+//	{
+//		int data = *it;
+//		if (data % 2 == 0)
+//		{
+//			myVector.erase(it);
+//		}
+//		it++;
+//	}
 //
-//    myVector->Remove(1);
-//    myVector->RemoveAt(1);
-//    int value = myVector->FindIdx(3);
-//    bool IsValue = myVector->FindValue(2);
-//    myVector->Clear();
-//#pragma endregion
+//	MyVector<int>::iterator it2 = myVector.begin();
+//	for (; it2 != myVector.end();)
+//	{
+//		cout << *it2 << " ";
+//		it2++;
+//	}
 //
-//
-//#pragma region myList
-//    MyList<int>* myList = new MyList<int>();
-//    MyList<int>* myList2 = new MyList<int>();
-//
-//    //myList
-//    myList->push_back(1);
-//    myList->push_back(2);
-//    myList->push_back(3);
-//    myList->push_back(4);
-//    myList->push_back(5);
-//    myList->push_front(0);
-//    myList->pop_back();
-//    myList->pop_front();
-//    myList->Find(1);
-//    myList->insert(1, 0);
-//    myList->erase(1);
-//
-//    //myList2
-//    myList2->push_back(6);
-//    myList2->push_back(7);
-//    myList2->push_back(8);
-//    myList2->push_back(9);
-//
-//    myList->AddRanage(myList2);
+//	return 0;
+#pragma endregion
+
+
+#pragma region myList
+	MyList<int> myList;
+
+	myList.push_back(1);
+	myList.push_back(2);
+	myList.push_back(3);
+	myList.push_back(4);
+	myList.push_back(5);
+
+	MyList<int>::iterator it = myList.begin();
+	for (; it != myList.end();)
+	{
+		int data = *it;
+		//cout << *it << " ";
+		if (data % 2 == 0)
+		{
+			it = myList.erase(it);
+		}
+		else
+			it++;
+	}
+
+	MyList<int>::iterator it2 = myList.begin();
+	for (; it2 != myList.end();)
+	{
+		cout << *it2 << " ";
+		it2++;
+	}
+
+	return 0;
 #pragma endregion
 
 
@@ -89,22 +101,22 @@ int main()
 
 #pragma region MyQueue
 
-    MyQueue myQ;
-    myQ.Enqueue(1);
-    myQ.Enqueue(2);
-    myQ.Enqueue(3);
-    myQ.Dequeue();
-    int a = myQ.Front();
-
-#pragma endregion
-
-#pragma region MyStack
-    MyStack myST;
-    myST.Push(1);
-    myST.Push(2);
-    myST.Push(3);
-    myST.Pop();
-    int b = myST.Top();
+//    MyQueue myQ;
+//    myQ.Enqueue(1);
+//    myQ.Enqueue(2);
+//    myQ.Enqueue(3);
+//    myQ.Dequeue();
+//    int a = myQ.Front();
+//
+//#pragma endregion
+//
+//#pragma region MyStack
+//    MyStack myST;
+//    myST.Push(1);
+//    myST.Push(2);
+//    myST.Push(3);
+//    myST.Pop();
+//    int b = myST.Top();
 
 #pragma endregion
 

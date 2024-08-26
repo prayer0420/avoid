@@ -1,148 +1,287 @@
 #pragma once
 #include <iostream>
-#include<assert.h>
+#include <assert.h>
 using namespace std;
+
 
 template<typename T>
 class MyVector
 {
+
 private:
-    T* _arr; //동적 메모리를 가리키는 포인터
-    int _size;//현재 개수
-    int _capacity;//최대 개수
+	T* _ptrArr;
+	int _size;
+	int _capacity;
 
 public:
-    //기본생성자
-    MyVector()
-        :_arr(nullptr)
-        , _size(0)
-        , _capacity(2)
-    {
-        //최초 int타입 2칸짜리 배열 생성후 이 배열을 가리키도록
-        _arr = new int[_capacity];
-    }
 
-    //인자받는 기본생성자
-    MyVector(int* arr, int size, int capacity)
-        :_arr(arr), _size(size), _capacity(_capacity)
-    {
-        //깊은 복사
-        _arr = new int[_capacity];
-        for (int i = 0; i < size; i++)
-        {
-            _arr[i] = arr[i];
-        }
-    }
+	class iterator;
+	iterator begin();
+	iterator end();
+	iterator insert(iterator pos, const T& value);
+	iterator erase(iterator pos);
 
-    ~MyVector()
-    {
-        delete[] _arr;
-    }
 
-    //첨자연산, 인덱스 접근
-    int operator[](int idx)
-    {
-        assert(idx >= 0 && idx < _size);
-        return _arr[idx];
-    }
+	class iterator
+	{
+	private:
+		MyVector* _pArr = nullptr;
+		T* _ptr = nullptr;
+		int _idx;
 
-    //Add
-    void Add(T value)
-    {
-        //재할당
-        if (_size >= _capacity)
-        {
-            Reserve(_capacity * 2);
-        }
+	public:
+		iterator()
+			:_pArr(nullptr)
+			, _ptr(nullptr)
+			, _idx(-1)
+		{}
 
-        //size에 해당하는 칸에 value입력
-        _arr[_size++] = value;
+		iterator(MyVector* pArr, T* ptr, int idx)
+			:_pArr(pArr)
+			, _ptr(ptr)
+			, _idx(idx)
+		{}
 
-    }
+		~iterator() {}
 
-    int Size()
-    {
-        return _size;
-    }
+		//*접근
+		T& operator*()
+		{
+			if (_pArr->_ptrArr != _ptr || -1 == _idx)
+				assert(nullptr);
 
-    void Reserve(int capacity)
-    {
-        assert(capacity > _capacity);
+			return _ptr[_idx];
+		}
 
-        T* TempArr = new T[capacity];
-        for (int i = 0; i < _size; i++)
-        {
-            TempArr[i] = _arr[i];
-        }
-        //최초 할당했던 _arr이 가리키는 메모리(배열)는 쓸모 없으므로 해제
-        delete[] _arr;
-        //MyVector는 새로 할당한 TempArr가 가리키던 메모리(배열)를 똑같이 가리킨다
-        _arr = TempArr;
-        _capacity = capacity;
-    }
-    void AddRange(const MyVector<T>* otherVector)
-    {
-        Reserve(_size + otherVector->_size);
-        for (int i = 0; i < otherVector->_size; i++)
-        {
-            _arr[_size++] = otherVector->_arr[i];
-        }
-    }
+		//전위++
+		iterator& operator ++()
+		{
+			if (_pArr->_ptrArr != _ptr || -1 == _idx)
+				assert(nullptr);
+			//iterator가 마지막 데이터를 가리키는 경우 enditerator로
+			if (_idx == _pArr->size() - 1)
+				_idx = -1;
+			else
+				++_idx;
+			return *this;
+		}
 
-    //Clear
-    void Clear()
-    {
-        delete[] _arr;
-        _size = 0;
-        _capacity = 0;
-        _arr = nullptr;
-    }
+		//후위++
+		iterator operator ++(int)
+		{
+			iterator tempIt = *this;
+			++(*this);
+			return tempIt;
+		}
 
-    //배열에 value값이 있는지 확인하고 있으면 값을, 없으면 0을 반환
-    bool FindValue(T value)
-    {
-        for (int i = 0; i < _size; i++)
-        {
-            if (_arr[i] == value)
-                return true;
-        }
-        return false;
-    }
-    //인덱스로 찾기
-    T FindIdx(int idx)
-    {
-        assert(idx >= 0 && idx < _size);
-        if (_arr[idx] != 0)
-            return _arr[idx];
+		//전위--
+		iterator& operator --()
+		{
+			//이터레이터가 처음을 가리킨 경우
+			if (_pArr->_ptrArr != _ptr || _idx == 0)
+				assert(nullptr);
+			else
+				_idx--;
+			return *this;
+		}
 
-        return 0;
-    }
+		//후위--
+		iterator operator --(int)
+		{
+			iterator tempIt = *this;
+			--(*this);
+			return tempIt;
+		}
 
-    //특정 값을 제거
-    void Remove(T value)
-    {
-        for (int i = 0; i < _size; i++)
-        {
-            if (_arr[i] == value)
-            {
-                for (int j = i; j < _size - 1; j++)
-                {
-                    _arr[j] = _arr[j + 1];
-                }
-                _size--;
-                i--;
-            }
-        }
+		//비교 ==
+		bool operator ==(const iterator other)
+		{
+			if (_ptr == other._ptr && _idx == other._idx)
+				return true;
+			return false;
+		}
 
-    }
-    //특정 인덱스의 값을 제거
-    void RemoveAt(int idx)
-    {
-        assert(idx >= 0 && idx < _size);
-        for (int i = idx; i < _size - 1; i++)
-        {
-            _arr[i] = _arr[i + 1];
-        }
-        _size--;
-    }
+		//비교!=
+		bool operator !=(const iterator other)
+		{
+			return !(*this == other);
+		}
+		friend class MyVector;
+	};
+
+	//기본 생성자
+	MyVector()
+		: _size(0)
+		, _capacity(2)
+		, _ptrArr(nullptr)
+	{
+		_ptrArr = new int[_capacity];
+	}
+
+	//인자받는 기본 생성자
+	MyVector(T* ptrArr, int size, int capacity)
+		:_ptrArr(new T[capacity])
+		, _size(size)
+		, _capacity(capacity)
+	{
+		for (int i = 0; i < _size; i++)
+		{
+			_ptrArr[i] = ptrArr[i];
+		}
+	}
+
+	//복사 생성자
+	MyVector(const MyVector* other)
+		:_size(other->_size)
+		, _capacity(other->_capacity)
+		, _ptrArr(new T[other->_capacity])
+	{
+		//깊은 복사
+		for (int i = 0; i < _size; i++)
+		{
+			_ptrArr[i] = other->_ptrArr[i];
+		}
+	}
+
+	//복사 대입 연산자
+	MyVector& operator =(const MyVector& other)
+	{
+		if (&other != this)
+		{
+			delete[] _ptrArr;
+			_size = other._size;
+			_capacity = other._capacity;
+			_ptrArr = new T[_capacity];
+			//깊은 복사
+			for (int i = 0; i < other._size; i++)
+			{
+				_ptrArr[i] = other._ptrArr[i];
+			}
+		}
+		return *this;
+	}
+
+	~MyVector()
+	{
+		delete[] _ptrArr;
+	}
+
+	T& operator [](int idx)
+	{
+		assert(idx >= 0 && idx < _size);
+		assert(idx == -1);
+
+		//end iterator를 가리킬 때
+
+		return _ptrArr[idx];
+
+	}
+
+	void push_back(T value)
+	{
+		if (_size >= _capacity)
+		{
+			//재할당
+			Reserve(_capacity * 2);
+			//Resize(_capacity*2);
+		}
+		_ptrArr[_size++] = value;
+	}
+
+	void Reserve(int capacity)
+	{
+		if (capacity <= _capacity)
+			assert(nullptr);
+
+		T* newArrPtr = new T[capacity];
+		for (int i = 0; i < _size; i++)
+		{
+			newArrPtr[i] = _ptrArr[i];
+		}
+		delete[] _ptrArr;
+		_ptrArr = newArrPtr;
+		_capacity = capacity;
+	}
+
+	void Resize(int capacity)
+	{
+		if (capacity <= _capacity)
+			assert(nullptr);
+
+		T* newArrPtr = new T[capacity];
+		for (int i = 0; i < _size; i++)
+		{
+			newArrPtr[i] = _ptrArr[i];
+		}
+
+		for (int i = _size; i < capacity; i++)
+		{
+			newArrPtr[i] = 0;
+		}
+
+		delete[] _ptrArr;
+		_ptrArr = newArrPtr;
+		_capacity = capacity;
+		_size = capacity;
+	}
+
+	int size()
+	{
+		return _size;
+	}
+
+	int capacity()
+	{
+		return _capacity;
+	}
+
 };
+
+template<typename T>
+inline typename MyVector<T>::iterator MyVector<T>::begin()
+{
+	if (_size == 0)
+		return iterator(this, _ptrArr, -1); //데이터가 없는경우 end이터레이터
+	else
+		return iterator(this, _ptrArr, 0);
+}
+
+template<typename T>
+inline typename MyVector<T>::iterator MyVector<T>::end()
+{
+	return iterator(this, _ptrArr, -1);
+}
+
+template<typename T>
+inline typename  MyVector<T>::iterator MyVector<T>::insert(iterator pos, const T& value)
+{
+	int index = pos._idx;
+
+	if (_size >= _capacity)
+	{
+		Resize(_capacity * 2);
+	}
+
+	for (int i = index; i < _size; i++)
+	{
+		_ptrArr[i + 1] = _ptrArr[i];
+	}
+	_ptrArr[index] = value;
+	_size++;
+	return iterator(this, _ptrArr, index);
+}
+
+template<typename T>
+inline typename MyVector<T>::iterator MyVector<T>::erase(iterator pos)
+{
+	int index = pos._idx;
+
+	for (int i = index; i < _size - 1; i++)
+	{
+		_ptrArr[i] = _ptrArr[i + 1];
+	}
+
+	_size--;
+
+	return iterator(this, _ptrArr, index);
+}

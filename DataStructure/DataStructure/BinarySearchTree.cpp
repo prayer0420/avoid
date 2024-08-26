@@ -2,6 +2,7 @@
 #include <iostream>
 #include <Windows.h>
 using namespace std; 
+using namespace BST;
 
 //Ãß°¡
 void BinarySearchTree::Insert(int value)
@@ -48,8 +49,11 @@ Node* BinarySearchTree::Search(Node* SearchNode, int value)
 
 	if (value < SearchNode->value)
 		return Search(SearchNode->left, value);
+
 	else if(value > SearchNode->value)
 		return Search(SearchNode->right, value);
+	
+	return nullptr;
 }
 
 Node* BinarySearchTree::Min(Node* node)
