@@ -1,318 +1,384 @@
 #pragma once
-#include <iostream>
+
 #include <assert.h>
-using namespace std;
 
 template<typename T>
 struct Node
 {
-	T _value;
+	T		 Data;
 	Node<T>* _next;
 	Node<T>* _prev;
 
-public:
 	Node()
-		:_value(0)
+		: Data()
 		, _next(nullptr)
 		, _prev(nullptr)
 	{}
 
-	Node(T value)
-		:_value(value)
-		, _next(nullptr)
-		, _prev(nullptr)
+	Node(const T& _Data, Node<T>* _Next, Node<T>* _Prev)
+		: Data(_Data)
+		, _next(_Next)
+		, _prev(_Prev)
 	{}
-
-	Node(T value, Node<T>* next, Node<T>* prev)
-		:_value(value)
-		, _next(next)
-		, _prev(prev)
-	{}
-
 };
 
 template<typename T>
 class MyList
 {
 private:
-	Node<T>* _head = nullptr;
-	Node<T>* _tail = nullptr;
-	int _size = 0;
-public:
+	Node<T>* _head;
+	Node<T>* _tail;
+	int		 _size;
 
-	MyList() {}
-	~MyList() {}
+public:
+	void push_back(const T& _Data);
+	void push_front(const T& _Data);
+	int size() { return _size; }
 
 	class iterator;
+
 	iterator begin() { return iterator(this, _head); }
 	iterator end() { return iterator(this, nullptr); }
 
-	//_targetIter 가 가리키는곳 앞에 _Data 를 저장시키고, 새로 저장한 데이터를 가리키는 iterator 를 반환
-	iterator insert(iterator _targetIter, const T& Data);
 
-	//_targetIter 가 가리키는 데이터를 삭제하고, 삭제한 다음을 가리키는 iterator 를 반환
+	// _targetIter 가 가리키는곳에 _Data 를 저장시키고, 새로 저장한 데이터를 가리키는 iterator 를 반환해준다.
+	iterator insert(iterator _targetIter, const T& _Data);
+
+	// _targetIter 가 가리키는 데이터를 삭제하고, 삭제한 다음을 가리키는 iterator 를 반환
 	iterator erase(iterator _targetIter);
 
+
+public:
+	MyList()
+		: _head(nullptr)
+		, _tail(nullptr)
+		, _size(0)
+	{}
+
+	~MyList()
+	{
+		Node<T>* pNode = _head;
+
+		while (pNode)
+		{
+			Node<T>* pNext = pNode->_next;
+			delete pNode;
+			pNode = pNext;
+		}
+	}
+
+public:
 	class iterator
 	{
 	private:
-		MyList<T>* Owner;
-		Node<T>* TargetNode;
+		MyList<T>* owner;
+		Node<T>* targetNode;
+
 	public:
-		friend class MyList<T>;
-
-		iterator()
-			:Owner(nullptr)
-			, TargetNode(nullptr)
-		{}
-
-		iterator(MyList<T>* _Owner, Node<T>* _TargetNode)
-			:Owner(_Owner)
-			, TargetNode(_TargetNode)
-		{}
-
-		~iterator() {}
-
-		T& operator*()
+		T& operator *()
 		{
 			// Owner(List) 가 설정되어있지 않으면, 정상적인 iterator 가 아니다.
 			// Owner 가 설정되어 있어도, m_TargetNode 가 nullptr 이면 End Iterator 이기 때문에
 			// 마지막의 다음을 가리키는 상태의 iterator 에게 * 로 접근기능을 쓰면 에러
-			assert(Owner && TargetNode);
-			return TargetNode->_value;
+			assert(owner && targetNode);
+			return targetNode->Data;
 		}
 
-		//전위 ++
+		// 1. ++, -- 반환타입 문제
+		// 2. ++, -- 후위연산자 문제
 		iterator& operator ++()
 		{
-			//enditerator의 경우 에러
-			assert(Owner && TargetNode);
-			TargetNode = TargetNode->_next;
+			// enditerator 에서 ++ 하는 경우
+			assert(owner && targetNode);
+			targetNode = targetNode->_next;
+
 			return *this;
 		}
 
-		//후위 ++
-		iterator operator ++ (int)
+		iterator operator++(int)
 		{
-			assert(Owner && TargetNode);
-			iterator tempit = *this;
+			iterator copyiter = *this;
+
 			++(*this);
-			return tempit;
+
+			return copyiter;
 		}
 
-		//전위--
 		iterator& operator --()
 		{
-			assert(Owner);
+			assert(owner);
+			assert(owner->_head != targetNode); // iterator 가 begin 이다.
 
-			//targetnode가 begin일 경우 에러(begin보다 --로 갈순 없음)
-			assert(Owner->_head != TargetNode);
-
-			if (nullptr == TargetNode)
+			if (nullptr == targetNode)
 			{
-				//현재 iterator가 end상태인데 --가 호출된경우
-				TargetNode = Owner->_tail;
+				// 현재 iterator 가 end 상태인데 -- 함수가 호출된 경우
+				// 마지막 노드를 가리키게 한다.
+				targetNode = owner->_tail;
 			}
 			else
-				TargetNode = TargetNode->_prev;
+			{
+				// 현재 가리키고 있는 노드의 이전 노드를 가리키게 한다.
+				targetNode = targetNode->_prev;
+			}
+
 			return *this;
 		}
 
-		//후위--
 		iterator operator --(int)
 		{
-			assert(Owner && TargetNode);
-			iterator tempIt = *this;
-			--(*this);
-			return tempIt;
+			iterator copyiter = *this;
+
+			++(*this);
+
+			return copyiter;
 		}
 
-		bool operator == (const iterator& otherIterator)
+		bool operator == (const iterator& _otheriter)
 		{
-			if (Owner == otherIterator.Owner && TargetNode == otherIterator.TargetNode)
+			if (owner == _otheriter.owner && targetNode == _otheriter.targetNode)
 				return true;
-			return false;
+			else
+				return false;
 		}
 
-		bool operator != (const iterator& otherIterator)
+		bool operator != (const iterator& _otheriter)
 		{
-			return !(*this == otherIterator);
+			return !((*this) == _otheriter);
 		}
 
+	public:
+		iterator()
+			: owner(nullptr)
+			, targetNode(nullptr)
+		{}
+
+		iterator(MyList<T>* _Owner, Node<T>* _targetNode)
+			: owner(_Owner)
+			, targetNode(_targetNode)
+		{}
+
+		~iterator()
+		{}
+
+		friend class MyList<T>;
 	};
-
-
-	void push_back(T value)
-	{
-		//Node* newNode = new Node(value);
-		Node<T>* newNode = new Node<T>(value, nullptr, nullptr);
-
-		//처음 이라면
-		if (_tail == nullptr)
-		{
-			_head = newNode;
-		}
-
-		else
-		{
-			newNode->_prev = _tail;
-			_tail->_next = newNode;
-		}
-		_tail = newNode;
-		_size++;
-	}
-
-	void push_front(T value)
-	{
-		Node* newNode = new Node(value, nullptr, nullptr);
-		if (_head == nullptr)
-		{
-			_tail = newNode;
-		}
-		else
-		{
-			_head->_prev = newNode;
-			newNode->_next = _head;
-		}
-		_head = newNode;
-		_size++;
-	}
-
-	//node앞에 추가
-	void Insert(Node<T>* node, int value)
-	{
-		if (node == nullptr)
-		{
-			return;
-		}
-
-		Node<T>* newNode = new Node<T>(value, nullptr, nullptr);
-		node->_prev->_next = newNode;
-		node->_prev = newNode;
-
-		newNode->_next = node;
-		newNode->_prev = node->_prev;
-		_size++;
-
-	}
-
-	void Delete(Node<T>* node)
-	{
-		node = Search(node);
-
-		if (node == nullptr)
-			return;
-
-		node->_next->_prev = node->_prev;
-		node->_prev->_next = node->_next;
-
-		delete node;
-	}
-
-	Node<T>* Search(Node<T>* node)
-	{
-		Node<T>* SearchNode = _head;
-		for (int i = 0; i < _size; i++)
-		{
-			if (SearchNode == node)
-			{
-				return SearchNode;
-			}
-			SearchNode = SearchNode->_next;
-		}
-	}
-
-	void Release()
-	{
-		Node<T>* deleteNode = _head;
-		while (deleteNode)
-		{
-			Node* node = deleteNode->_next;
-			delete deleteNode;
-			deleteNode = node;
-		}
-	}
-
-	Node<T>* GetNode(int idx)
-	{
-		if (idx > _size)
-			return nullptr;
-
-
-		Node<T>* tempNode = _head;
-
-		for (int i = 0; i < idx - 1; i++)
-		{
-			if (tempNode == nullptr)
-				return nullptr;
-
-			tempNode = tempNode->_next;
-		}
-
-		return tempNode;
-
-	}
-
-
 };
 
 template<typename T>
-typename MyList<T>::iterator MyList<T>::insert(iterator _targetIter, const T& Data)
+void MyList<T>::push_back(const T& _Data)
 {
-	//현재 리스트에 타겟 이터레이터가 속해있는지
-	assert(this == _targetIter.Owner);
+	Node<T>* pNewNode = new Node<T>(_Data, nullptr, nullptr);
+
+	if (0 == _size) //nullptr == m_pHead)
+	{
+		_head = pNewNode;
+		_tail = pNewNode;
+	}
+	else
+	{
+		_tail->_next = pNewNode;
+		pNewNode->_prev = _tail;
+		_tail = pNewNode;
+	}
+
+	++_size;
+}
+
+template<typename T>
+inline void MyList<T>::push_front(const T& _Data)
+{
+	Node<T>* pNewNode = new Node<T>(_Data, _head, nullptr);
+
+	if (nullptr != _head)
+	{
+		_head->_prev = pNewNode;
+	}
+	else
+	{
+		_tail = pNewNode;
+	}
+
+	_head = pNewNode;
+	++_size;
+}
+
+
+// 반환타입이 이너클래스인 경우 앞에 typename 을 붙여주어야 한다.
+template<typename T>
+typename MyList<T>::iterator MyList<T>::insert(iterator _targetIter, const T& _Data)
+{
+	// iterator 가 해당 리스트가 소유한 데이터를 가리키는 상태인지 확인
+	assert(_targetIter.owner == this);
+
+	//enditerator에 insert할수 없음
+	if (_targetIter.targetNode == nullptr)
+		assert(nullptr);
+
 
 	Node<T>* newNode = new Node<T>();
-	newNode->_value = Data;
+	newNode->Data = _Data;
 
-	//ister위치가 맨처음이라면, head앞에 노드 붙임
-	if (_head == _targetIter.TargetNode)
+	// insert 위치가 맨 처음이라면, push_front 로 처리한다.
+	if (_targetIter.targetNode == _head)
 	{
-		_head->_prev = newNode;
-		newNode->_next = _head;
-
+		_targetIter.targetNode->_prev = newNode;
+		newNode->_next = _targetIter.targetNode;
 		_head = newNode;
 	}
+
+	else
+	{
+		newNode->_prev = _targetIter.targetNode->_prev;
+		newNode->_next = _targetIter.targetNode;
+
+		_targetIter.targetNode->_prev->_next = newNode;
+		_targetIter.targetNode->_prev = newNode;
+	}
+
 	_size++;
+
 	return iterator(this, newNode);
+	
 }
 
 template<typename T>
 typename MyList<T>::iterator MyList<T>::erase(iterator _targetIter)
 {
-	//현재 리스트에 타겟 이터레이터가 속해있는지
-	assert(_targetIter.Owner == this);
+	// iterator 가 해당 리스트가 소유한 데이터를 가리키는 상태인지 확인
+	assert(_targetIter.owner == this);
 
-	//삭제할 노드가 헤드노드인지
-	if (_targetIter.TargetNode == _head)
+
+	// _targetIter 가 가리키고 있는 노드(삭제할 노드)		
+	if (_targetIter.targetNode == _head)
 	{
-		_head = _targetIter.TargetNode->_next;
-		//리스트에 노드가 단 1개였던 경우
+		// 예외상황(삭제할 노드가 Head 인 경우)
+		// 두번째 노드를 새로운 헤드로 지정
+		_head = _targetIter.targetNode->_next;
+
 		if (_head == nullptr)
 		{
+			// 리스트안에 데이터가 1개였다면,(삭제할 노드가 처음이자 마지막 노드였다)
 			_tail = nullptr;
 		}
-		_head->_prev = nullptr;
+		else
+		{
+			// 새롭게 지정된 헤드노드의 이전을 nullptr 로 바꾼다(삭제될 노드를 가리키고 있기 때문에)
+			_head->_prev = nullptr;
+		}
 	}
-
-	//삭제할 노드가 테일노드인지
-	else if (_targetIter.TargetNode == _tail)
+	else if (_targetIter.targetNode == _tail)
 	{
-		_tail = _targetIter.TargetNode->_prev;
+		// 삭제할 노드의 이전을 새로운 Tail 로 지정
+		_tail = _targetIter.targetNode->_prev;
 
+		// 새로 지정된 Tail 노드의 Next 를 null 로 바꿈
 		_tail->_next = nullptr;
 	}
 
-	//삭제할 노드가 중간인지
+	// 삭제할 노드가 Head 도 아니고 Tail 도 아니다(중간이다)
 	else
 	{
-		_targetIter.TargetNode->_prev->_next = _targetIter.TargetNode->_next;
-		_targetIter.TargetNode->_next->_prev = _targetIter.TargetNode->_prev;
+		// 삭제할 노드 이전노드의 Next 를 삭제할 노드 Next 로 교체
+		_targetIter.targetNode->_prev->_next = _targetIter.targetNode->_next;
+
+		// 삭제할 노드 다음 노드의 Prev 를 삭제할 노드 Prev 로 교체
+		_targetIter.targetNode->_next->_prev = _targetIter.targetNode->_prev;
 	}
 
-	iterator nextIt(this, _targetIter.TargetNode->_next);
-	delete _targetIter.TargetNode;
-	_size--;
+	// 삭제된 노드의 다음을 가리키는 iterator 를 만든다.
+	iterator nextiter(this, _targetIter.targetNode->_next);
 
-	return nextIt;
+	// _targetIter 가 가리키고 있는 노드를 delete(동적할당 해제)
+	delete _targetIter.targetNode;
+
+	// 데이터 카운트 감소
+	--_size;
+
+	return nextiter;
+}
+// 테스트 함수들
+void test_push_back() {
+	MyList<int> myList;
+	myList.push_back(1);
+	myList.push_back(2);
+	myList.push_back(3);
+
+	assert(myList.size() == 3);
+	MyList<int>::iterator it = myList.begin();
+	assert(*it == 1);
+	++it;
+	assert(*it == 2);
+	++it;
+	assert(*it == 3);
+	std::cout << "test_push_back passed!" << std::endl;
+}
+
+void test_push_front() {
+	MyList<int> myList;
+	myList.push_front(1);
+	myList.push_front(2);
+	myList.push_front(3);
+
+	assert(myList.size() == 3);
+	MyList<int>::iterator it = myList.begin();
+	assert(*it == 3);
+	++it;
+	assert(*it == 2);
+	++it;
+	assert(*it == 1);
+	std::cout << "test_push_front passed!" << std::endl;
+}
+
+void test_insert() {
+	MyList<int> myList;
+	myList.push_back(1);
+	myList.push_back(3);
+
+	MyList<int>::iterator it = myList.begin();
+	++it;
+	myList.insert(it, 2); // 3 앞에 2 삽입
+
+	assert(myList.size() == 3);
+	it = myList.begin();
+	assert(*it == 1);
+	++it;
+	assert(*it == 2);
+	++it;
+	assert(*it == 3);
+	std::cout << "test_insert passed!" << std::endl;
+}
+
+void test_erase() {
+	MyList<int> myList;
+	myList.push_back(1);
+	myList.push_back(2);
+	myList.push_back(3);
+
+	MyList<int>::iterator it = myList.begin();
+	++it; // 가리키는 위치가 2
+	myList.erase(it); // 2를 삭제
+
+	assert(myList.size() == 2);
+	it = myList.begin();
+	assert(*it == 1);
+	++it;
+	assert(*it == 3);
+	std::cout << "test_erase passed!" << std::endl;
+}
+
+void test_iterators() {
+	MyList<int> myList;
+	myList.push_back(1);
+	myList.push_back(2);
+	myList.push_back(3);
+
+	MyList<int>::iterator it = myList.begin();
+	assert(*it == 1);
+	++it;
+	assert(*it == 2);
+	++it;
+	assert(*it == 3);
+	++it;
+	assert(it == myList.end());
+	std::cout << "test_iterators passed!" << std::endl;
 }

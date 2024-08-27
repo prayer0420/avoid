@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include "MyList.h"
-#include "MyVector.h"
+//#include "MyVector.h"
 #include "BinarySearchTree.h"
 #include "MyQueue.h"
 #include "MyStack.h"
@@ -14,66 +14,26 @@ using namespace std;
 int main()
 {
 //#pragma region myVector
-//	MyVector<int> myVector;
-//
-//	myVector.push_back(1);
-//	myVector.push_back(2);
-//	myVector.push_back(3);
-//	myVector.push_back(4);
-//	myVector.push_back(5);
-//
-//	MyVector<int>::iterator it = myVector.begin();
-//	for (; it != myVector.end();)
-//	{
-//		int data = *it;
-//		if (data % 2 == 0)
-//		{
-//			myVector.erase(it);
-//		}
-//		it++;
-//	}
-//
-//	MyVector<int>::iterator it2 = myVector.begin();
-//	for (; it2 != myVector.end();)
-//	{
-//		cout << *it2 << " ";
-//		it2++;
-//	}
-//
-//	return 0;
-#pragma endregion
+	//test_push_back();
+	//test_insert();
+	//test_erase();
+	//test_resize();
+	//test_iterators();
+
+	//std::cout << "All tests passed!" << std::endl;
+	//return 0;
+//#pragma endregion
 
 
 #pragma region myList
-	MyList<int> myList;
+    test_push_back();
+    test_push_front();
+    test_insert();
+    test_erase();
+    test_iterators();
 
-	myList.push_back(1);
-	myList.push_back(2);
-	myList.push_back(3);
-	myList.push_back(4);
-	myList.push_back(5);
-
-	MyList<int>::iterator it = myList.begin();
-	for (; it != myList.end();)
-	{
-		int data = *it;
-		//cout << *it << " ";
-		if (data % 2 == 0)
-		{
-			it = myList.erase(it);
-		}
-		else
-			it++;
-	}
-
-	MyList<int>::iterator it2 = myList.begin();
-	for (; it2 != myList.end();)
-	{
-		cout << *it2 << " ";
-		it2++;
-	}
-
-	return 0;
+    std::cout << "All tests passed!" << std::endl;
+    return 0;
 #pragma endregion
 
 
