@@ -2,8 +2,6 @@
 
 namespace BST
 {
-
-
 	struct Node
 	{
 		int value;
@@ -11,7 +9,6 @@ namespace BST
 		Node* left;
 		Node* parent;
 	};
-
 
 	class BinarySearchTree
 	{
@@ -36,8 +33,6 @@ namespace BST
 		void Print();
 
 	private:
-		Node* _root;
-
+		Node* _root = nullptr;
 	};
-
 }

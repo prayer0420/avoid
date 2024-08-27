@@ -203,7 +203,7 @@ inline void MyList<T>::push_front(const T& _Data)
 }
 
 
-// 반환타입이 이너클래스인 경우 앞에 typename 을 붙여주어야 한다.
+// 반환타입이 이너클래스인 경우 앞에 typename을 붙여주어야 한다.
 template<typename T>
 typename MyList<T>::iterator MyList<T>::insert(iterator _targetIter, const T& _Data)
 {

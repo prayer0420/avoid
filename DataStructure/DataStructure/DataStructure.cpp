@@ -3,10 +3,11 @@
 
 #include <iostream>
 #include "MyList.h"
-//#include "MyVector.h"
+#include "MyVector.h"
 #include "BinarySearchTree.h"
 #include "MyQueue.h"
 #include "MyStack.h"
+#include "MyString.h"
 
 using namespace std;
 
@@ -81,6 +82,25 @@ int main()
 #pragma endregion
 
 
+#pragma region MyString
+
+    MyWString str1(L"안녕하세요");
+    MyWString str2(L" 세계");
+
+    // 문자열 연결
+    MyWString str3 = str1 + str2;
+    std::wcout << str3 << std::endl; // 출력: "안녕하세요 세계"
+
+    // 문자열 비교
+    if (str1 == MyWString(L"안녕하세요")) {
+        std::wcout << L"str1은 '안녕하세요'입니다." << std::endl;
+    }
+
+    // 문자열 길이 출력
+    std::wcout << L"str3의 길이: " << str3.size() << std::endl; // 출력: 8
+
+    return 0;
+#pragma endregion
 
 
 

@@ -87,7 +87,7 @@ Node* BinarySearchTree::Next(Node* node)
 	Node* parentNode = node->parent;
 	while (parentNode && node == parentNode->right)
 	{
-		//parent->left를 찾으면 return
+		//node==parent->left를 찾으면 break
 		node = parentNode;
 		parentNode = parentNode->parent;
 	}
@@ -115,10 +115,10 @@ void BinarySearchTree::Replace(Node* deleteNode, Node* replaceNode)
 	if (deleteNode->parent == nullptr)
 		_root = replaceNode;
 	//자식이 1개만 있을때
-	//부모가 있는 왼쪽 자식 일때
+	//부모가 있는 왼쪽자식 일때
 	else if (deleteNode == deleteNode->parent->left)
 		deleteNode->parent->left = replaceNode;
-    //자식이 오른쪽에만 있을때
+    //부모가있는 오른쪽자식 일때
 	else
 		deleteNode->parent->right = replaceNode;
 
@@ -136,16 +136,27 @@ void BinarySearchTree::Delete(Node* deleteNode)
 {
 	if (deleteNode == nullptr)
 		return;
+	
+	//자식이 없는 경우
+	//그냥 deleteNode만 삭제하면 됨
+	if (deleteNode->left == nullptr && deleteNode->right == nullptr)
+	{
+		Replace(deleteNode, nullptr);
+		delete deleteNode;
+	}
 
 	//자식이 왼쪽에만 있을때
 	if (deleteNode->right == nullptr)
 	{
 		Replace(deleteNode, deleteNode->left);
+		delete deleteNode;
+
 	}
 	//자식이 오른쪽에만 있을때
-	else if (deleteNode->left== nullptr)
+	else if (deleteNode->left == nullptr)
 	{
 		Replace(deleteNode, deleteNode->right);
+		delete deleteNode;
 	}
 
 	//자식이 2명 있을때
