@@ -4,10 +4,12 @@
 #include <iostream>
 #include "MyList.h"
 #include "MyVector.h"
-#include "BinarySearchTree.h"
+#include "MyBst.h"
 #include "MyQueue.h"
 #include "MyStack.h"
 #include "MyString.h"
+#include "MySet.h"
+#include "MyMap.h"
 
 using namespace std;
 
@@ -27,14 +29,14 @@ int main()
 
 
 #pragma region myList
-    test_push_back();
-    test_push_front();
-    test_insert();
-    test_erase();
-    test_iterators();
+    //test_push_back();
+    //test_push_front();
+    //test_insert();
+    //test_erase();
+    //test_iterators();
 
-    std::cout << "All tests passed!" << std::endl;
-    return 0;
+    //std::cout << "All tests passed!" << std::endl;
+    //return 0;
 #pragma endregion
 
 
@@ -46,17 +48,27 @@ int main()
 
 #pragma region BinarySearchTree
 
-    //BinarySearchTree* BST = new BinarySearchTree();
-    //BST->Insert(10);
-    //BST->Insert(5);
-    //BST->Insert(20);
-    //BST->Insert(8);
-    //BST->Insert(15);
-    //BST->Insert(30);
-    //BST->Delete(20);
+    BST::MyBST bst;
+    bst.insert(10);
+    bst.insert(5);
+    bst.insert(20);
+    bst.insert(3);
+    bst.insert(7);
+    bst.insert(15);
+    bst.insert(30);
 
-    //BST->ReversePrint();
-    //BST->Print();
+    cout << "중위순회";
+    bst.inOrderTraversal(bst.root);
+    cout << endl;
+
+    cout << "Search 7: " << (bst.search(7) ? "Found" : "Not Found") << endl;
+    cout << "Search 25: " << (bst.search(25) ? "Found" : "Not Found") << endl;
+
+    bst.remove(10);
+    cout << "중위순회 후 10제거 : ";
+    bst.inOrderTraversal(bst.root);
+    cout << endl;
+
 #pragma endregion
 
 
@@ -84,30 +96,85 @@ int main()
 
 #pragma region MyString
 
-    MyWString str1(L"안녕하세요");
-    MyWString str2(L" 세계");
+    //MyWString str1(L"안녕하세요");
+    //MyWString str2(L" 세계");
 
-    // 문자열 연결
-    MyWString str3 = str1 + str2;
-    std::wcout << str3 << std::endl; // 출력: "안녕하세요 세계"
+    //// 문자열 연결
+    //MyWString str3 = str1 + str2;
+    //std::wcout << str3 << std::endl; // 출력: "안녕하세요 세계"
 
-    // 문자열 비교
-    if (str1 == MyWString(L"안녕하세요")) {
-        std::wcout << L"str1은 '안녕하세요'입니다." << std::endl;
-    }
+    //// 문자열 비교
+    //if (str1 == MyWString(L"안녕하세요")) {
+    //    std::wcout << L"str1은 '안녕하세요'입니다." << std::endl;
+    //}
 
-    // 문자열 길이 출력
-    std::wcout << L"str3의 길이: " << str3.size() << std::endl; // 출력: 8
+    //// 문자열 길이 출력
+    //std::wcout << L"str3의 길이: " << str3.size() << std::endl; // 출력: 8
 
-    return 0;
+    //return 0;
 #pragma endregion
 
 
+#pragma region MySet
+   //MySet::MySet mySet;
+
+   //mySet.insert(10);
+   //mySet.insert(5);
+   //mySet.insert(20);
+   //mySet.insert(10);
+
+   //cout << "Set contents (in-order): ";
+   //mySet.inOrderTraversal(mySet.root);
+   //cout << endl;
+
+   //// 특정 값이 집합에 있는지 확인
+   //cout << "Contains 10: " << (mySet.contains(10) ? "Yes" : "No") << endl;
+   //cout << "Contains 15: " << (mySet.contains(15) ? "Yes" : "No") << endl;
 
 
+#pragma endregion
 
 
+#pragma region MyMap
 
+   //MyMap::MyMap myMap;
+
+   //// 맵에 키-값 쌍 삽입
+   //myMap.insert("apple", 5);
+   //myMap.insert("banana", 3);
+   //myMap.insert("cherry", 7);
+   //myMap.insert("date", 2);
+   //myMap.insert("elderberry", 8);
+
+   //// 맵의 내용을 중위 순회로 출력 (키 기준으로 오름차순 출력됨)
+   //cout << "중위순회: ";
+   //myMap.inOrderTraversal(myMap.root);
+   //cout << endl;
+
+   //// 특정 키에 대한 값을 검색하여 출력
+   //try {
+   //    int& value = myMap.search("banana");
+   //    cout << "Value for 'banana': " << value << endl;
+   //}
+   //catch (const std::runtime_error& e) {
+   //    cout << "banana없음" << endl;
+   //}
+
+   //// 존재하지 않는 키에 대한 검색 시도
+   //try {
+   //    int& value = myMap.search("fig");
+   //    cout << "Value for 'fig': " << value << endl;
+   //}
+   //catch (const std::runtime_error& e) {
+   //    cout << "'fig' 없음" << endl;
+   //}
+
+   //// 특정 키에 해당하는 노드를 삭제
+   //myMap.remove("cherry");
+   //cout << "'cherry' 제거 후 중위순회 : ";
+   //myMap.inOrderTraversal(myMap.root);
+   //cout << endl;
+#pragma endregion
 
     return 0;
 }
