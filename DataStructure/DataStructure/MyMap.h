@@ -1,181 +1,219 @@
-#pragma once
 #include <iostream>
 #include <string>
+#include <stdexcept>
+
 using namespace std;
 
 namespace MyMap
 {
+    // MyPair 템플릿 구조체
+    template <typename T1, typename T2>
+    struct MyPair
+    {
+        T1 first;
+        T2 second;
+
+        MyPair() : first(T1()), second(T2()) {} // 기본 생성자
+        MyPair(const T1& a, const T2& b) : first(a), second(b) {} // 매개변수 생성자
+    };
+
+    // makePair 함수
+    template <typename T1, typename T2>
+    MyPair<T1, T2> makePair(T1 f, T2 s)
+    {
+        return MyPair<T1, T2>(f, s);
+    }
+
+    // Node 구조체 (BST 기반)
+    template <typename KeyType, typename ValueType>
     struct Node
     {
-        string key;  // 키 (문자열로 저장)
-        int value;   // 값 (정수로 저장)
+        MyPair<KeyType, ValueType> data; // 키-값 쌍을 저장
         Node* left;
         Node* right;
         Node* parent;
 
-        Node(string k, int v, Node* p = nullptr) : key(k), value(v), left(nullptr), right(nullptr), parent(p) {}
+        Node(const MyPair<KeyType, ValueType>& d, Node* p = nullptr)
+            : data(d), left(nullptr), right(nullptr), parent(p)
+        {}
     };
 
-    // 키-값 쌍을 저장하며, 키를 기준으로 정렬
+    // MyMap 클래스 (BST 기반)
+    template <typename KeyType, typename ValueType>
     class MyMap
     {
-    public:
-        Node* root = nullptr;
+    private:
+        Node<KeyType, ValueType>* root;
 
-        // 맵에 새로운 키-값 쌍을 삽입
-        void insert(string key, int value)
+        Node<KeyType, ValueType>* find(Node<KeyType, ValueType>* node, const KeyType& key)
         {
-            // 처음이라면 루트노드로 설정
+            if (node == nullptr || node->data.first == key)
+                return node;
+
+            if (key < node->data.first)
+                return find(node->left, key);
+            else
+                return find(node->right, key);
+        }
+
+        Node<KeyType, ValueType>* findMin(Node<KeyType, ValueType>* node)
+        {
+            while (node->left != nullptr)
+                node = node->left;
+            return node;
+        }
+
+        void removeNode(Node<KeyType, ValueType>*& node, const KeyType& key)
+        {
+            if (node == nullptr)
+                return;
+
+            if (key < node->data.first)
+            {
+                removeNode(node->left, key);
+            }
+            else if (key > node->data.first)
+            {
+                removeNode(node->right, key);
+            }
+            else
+            {
+                // 삭제할 노드를 찾았을 때
+
+                // 자식이 없는 경우(리프노드)
+                if (node->left == nullptr && node->right == nullptr)
+                {
+                    if (node->parent)
+                    {
+                        // 부모 노드에서 이 노드를 제거
+                        if (node == node->parent->left)
+                            node->parent->left = nullptr;
+                        else
+                            node->parent->right = nullptr;
+                    }
+                    delete node;
+                    node = nullptr;
+                }
+                // 자식이 하나만 있는 경우
+                else if (node->left == nullptr)
+                {
+                    Node<KeyType, ValueType>* temp = node->right;
+                    temp->parent = node->parent;
+                    delete node;
+                    node = temp;
+                }
+                else if (node->right == nullptr)
+                {
+                    Node<KeyType, ValueType>* temp = node->left;
+                    temp->parent = node->parent;
+                    delete node;
+                    node = temp;
+                }
+                else
+                {
+                    // 자식이 둘 다 있는 경우
+                    Node<KeyType, ValueType>* temp = findMin(node->right);
+                    node->data = temp->data;
+                    removeNode(node->right, temp->data.first);
+                }
+            }
+        }
+
+        void inOrderTraversal(Node<KeyType, ValueType>* node)
+        {
+            if (node == nullptr)
+                return;
+
+            inOrderTraversal(node->left);
+            cout << node->data.first << ": " << node->data.second << " ";
+            inOrderTraversal(node->right);
+        }
+
+    public:
+        MyMap() : root(nullptr) {}
+
+        // 삽입 함수
+        void insert(const MyPair<KeyType, ValueType>& pair)
+        {
             if (root == nullptr)
             {
-                root = new Node(key, value);
+                root = new Node<KeyType, ValueType>(pair);
                 return;
             }
 
-            Node* compareNode = root;  // 루트부터 시작해서 트리를 탐색
-            Node* parentNode = nullptr; // 부모 노드를 추적하기 위한 포인터
+            Node<KeyType, ValueType>* parentNode = nullptr;
+            Node<KeyType, ValueType>* currentNode = root;
 
-            while (compareNode != nullptr)
+            while (currentNode != nullptr)
             {
-                parentNode = compareNode; // 현재 노드를 부모 노드로 설정
+                parentNode = currentNode;
 
-                // 삽입하려는 키가 현재 노드의 키보다 작으면 왼쪽으로 이동
-                if (key < compareNode->key)
+                if (pair.first < currentNode->data.first)
                 {
-                    // 더 이상 왼쪽 자식이 없으면 새로운 노드를 이 위치에 삽입하고, 부모를 설정
-                    if (compareNode->left == nullptr)
+                    if (currentNode->left == nullptr)
                     {
-                        compareNode->left = new Node(key, value, parentNode); // 부모 노드를 설정
+                        currentNode->left = new Node<KeyType, ValueType>(pair, parentNode);
                         return;
                     }
-                    compareNode = compareNode->left; // 왼쪽 자식으로 이동
+                    currentNode = currentNode->left;
                 }
-                // 삽입하려는 키가 현재 노드의 키보다 크면 오른쪽으로 이동
-                else if (key > compareNode->key)
+                else if (pair.first > currentNode->data.first)
                 {
-                    // 더 이상 오른쪽 자식이 없으면 새로운 노드를 이 위치에 삽입하고, 부모를 설정
-                    if (compareNode->right == nullptr)
+                    if (currentNode->right == nullptr)
                     {
-                        compareNode->right = new Node(key, value, parentNode); // 부모 노드를 설정
+                        currentNode->right = new Node<KeyType, ValueType>(pair, parentNode);
                         return;
                     }
-                    compareNode = compareNode->right; // 오른쪽 자식으로 이동
+                    currentNode = currentNode->right;
                 }
-                // 삽입하려는 키가 이미 트리에 존재하면 값을 업데이트
                 else
                 {
-                    compareNode->value = value; // 키가 같다면 값을 업데이트
+                    // 키가 이미 존재하면 값을 업데이트
+                    currentNode->data.second = pair.second;
                     return;
                 }
             }
         }
 
-        // search 함수: 맵에서 특정 키를 검색하여 해당 값을 반환
-        // 키가 존재하면 해당 값을 참조로 반환하고, 없으면 예외를 던짐
-        int& search(string key)
+        // operator[] 오버로딩
+        ValueType& operator[](const KeyType& key)
         {
-            Node* compareNode = root;  // 루트부터 시작해서 트리를 탐색
-            while (compareNode != nullptr)
+            Node<KeyType, ValueType>* node = find(root, key);
+            if (node != nullptr)
             {
-                if (key == compareNode->key)
-                {
-                    return compareNode->value;  // 키를 찾으면 값을 참조로 반환
-                }
-                else if (key < compareNode->key)
-                {
-                    compareNode = compareNode->left;  // 키가 현재 노드보다 작으면 왼쪽으로 이동
-                }
-                else
-                {
-                    compareNode = compareNode->right; // 키가 현재 노드보다 크면 오른쪽으로 이동
-                }
+                return node->data.second;
             }
-            throw std::runtime_error("Key not found");  // 키를 찾지 못하면 예외를 던짐
+            else
+            {
+                // 키가 없으면 새로 추가하고 참조 반환
+                insert(makePair(key, ValueType())); // 기본 값을 ValueType()으로 초기화
+                node = find(root, key);
+                return node->data.second;
+            }
         }
 
-        // 중위 순회(in-order traversal)하면서 키-값 쌍을 출력
-        // 중위 순회는 왼쪽 자식 -> 현재 노드 -> 오른쪽 자식 순서로 노드를 방문하므로, 키들이 오름차순으로 출력
-        void inOrderTraversal(Node* node)
+        // 검색 함수
+        ValueType& search(const KeyType& key)
         {
+            Node<KeyType, ValueType>* node = find(root, key);
+
             if (node == nullptr)
-                return;  // 노드가 null이면 아무것도 하지 않음
+                throw runtime_error("Key not found");
 
-            inOrderTraversal(node->left);  // 왼쪽 자식 방문
-            cout << node->key << ": " << node->value << " ";  // 현재 노드의 키-값 쌍 출력
-            inOrderTraversal(node->right); // 오른쪽 자식 방문
+            return node->data.second;
         }
 
-        // 삭제 함수: 특정 키에 해당하는 노드를 삭제
-        void remove(string key)
+        // 삭제 함수
+        void remove(const KeyType& key)
         {
-            root = removeNode(root, key);
+            removeNode(root, key);
         }
 
-        Node* removeNode(Node* node, string key)
+        // 출력 함수 (중위 순회)
+        void print()
         {
-            if (node == nullptr)
-                return nullptr;
-
-            if (key < node->key)
-            {
-                node->left = removeNode(node->left, key);
-            }
-            else if (key > node->key)
-            {
-                node->right = removeNode(node->right, key);
-            }
-            else // 삭제할 노드를 찾았을 때 
-            {
-                // 자식이 없는 경우 (리프 노드)
-                if (node->left == nullptr && node->right == nullptr)
-                {
-                    // 부모 노드에서 이 노드를 제거
-                    if (node->parent != nullptr)
-                    {
-                        if (node->parent->left == node)
-                            node->parent->left = nullptr;  // 부모의 왼쪽 자식에서 제거
-                        else
-                            node->parent->right = nullptr; // 부모의 오른쪽 자식에서 제거
-                    }
-                    delete node;
-                    return nullptr;
-                }
-
-                // 하나의 자식만 있는 경우
-                else if (node->left == nullptr)
-                {
-                    Node* temp = node->right;  // 오른쪽 자식으로 대체
-                    temp->parent = node->parent; // 자식의 부모를 현재 노드의 부모로 설정
-                    delete node;
-                    return temp;
-                }
-                else if (node->right == nullptr)
-                {
-                    Node* temp = node->left;  // 왼쪽 자식으로 대체
-                    temp->parent = node->parent; // 자식의 부모를 현재 노드의 부모로 설정
-                    delete node;
-                    return temp;
-                }
-
-                // 두 개의 자식을 가진 경우, 오른쪽 서브트리에서 최소값을 찾음
-                Node* temp = findMin(node->right);
-
-                node->key = temp->key;
-                node->value = temp->value;
-
-                node->right = removeNode(node->right, temp->key);
-            }
-            return node;
-        }
-
-        // 오른쪽 서브트리에서 가장 작은 값을 가진 노드를 찾는 함수
-        Node* findMin(Node* node)
-        {
-            while (node->left != nullptr)
-            {
-                node = node->left;
-            }
-            return node;
+            inOrderTraversal(root);
+            cout << endl;
         }
     };
 }

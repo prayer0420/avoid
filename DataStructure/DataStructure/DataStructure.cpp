@@ -10,7 +10,8 @@
 #include "MyString.h"
 #include "MySet.h"
 #include "MyMap.h"
-
+#include "MyUnorderedMap.h"
+#include "MyUnorderedSet.h"
 using namespace std;
 
 
@@ -48,26 +49,26 @@ int main()
 
 #pragma region BinarySearchTree
 
-    BST::MyBST bst;
-    bst.insert(10);
-    bst.insert(5);
-    bst.insert(20);
-    bst.insert(3);
-    bst.insert(7);
-    bst.insert(15);
-    bst.insert(30);
+    //BST::MyBST bst;
+    //bst.insert(10);
+    //bst.insert(5);
+    //bst.insert(20);
+    //bst.insert(3);
+    //bst.insert(7);
+    //bst.insert(15);
+    //bst.insert(30);
 
-    cout << "중위순회";
-    bst.inOrderTraversal(bst.root);
-    cout << endl;
+    //cout << "중위순회";
+    //bst.inOrderTraversal(bst.root);
+    //cout << endl;
 
-    cout << "Search 7: " << (bst.search(7) ? "Found" : "Not Found") << endl;
-    cout << "Search 25: " << (bst.search(25) ? "Found" : "Not Found") << endl;
+    //cout << "Search 7: " << (bst.search(7) ? "Found" : "Not Found") << endl;
+    //cout << "Search 25: " << (bst.search(25) ? "Found" : "Not Found") << endl;
 
-    bst.remove(10);
-    cout << "중위순회 후 10제거 : ";
-    bst.inOrderTraversal(bst.root);
-    cout << endl;
+    //bst.remove(10);
+    //cout << "중위순회 후 10제거 : ";
+    //bst.inOrderTraversal(bst.root);
+    //cout << endl;
 
 #pragma endregion
 
@@ -137,44 +138,126 @@ int main()
 
 #pragma region MyMap
 
-   //MyMap::MyMap myMap;
+//MyMap::MyMap<const char*, int> myMap;
 
-   //// 맵에 키-값 쌍 삽입
-   //myMap.insert("apple", 5);
-   //myMap.insert("banana", 3);
-   //myMap.insert("cherry", 7);
-   //myMap.insert("date", 2);
-   //myMap.insert("elderberry", 8);
+//// 값 삽입
+//myMap.insert(MyMap::makePair("apple", 10));
+//myMap.insert(MyMap::makePair("banana", 20));
+//myMap.insert(MyMap::makePair("cherry", 30));
+//
+//// operator[]로 값 접근 및 수정
+//myMap["banana"] = 25;
+//
+//// 검색 및 출력
+//cout << "apple: " << myMap.search("apple") << endl;
+//cout << "banana: " << myMap["banana"] << endl;
+//
+//// 값 삭제
+//myMap.remove("banana");
+//myMap.print();
 
-   //// 맵의 내용을 중위 순회로 출력 (키 기준으로 오름차순 출력됨)
-   //cout << "중위순회: ";
-   //myMap.inOrderTraversal(myMap.root);
-   //cout << endl;
-
-   //// 특정 키에 대한 값을 검색하여 출력
-   //try {
-   //    int& value = myMap.search("banana");
-   //    cout << "Value for 'banana': " << value << endl;
-   //}
-   //catch (const std::runtime_error& e) {
-   //    cout << "banana없음" << endl;
-   //}
-
-   //// 존재하지 않는 키에 대한 검색 시도
-   //try {
-   //    int& value = myMap.search("fig");
-   //    cout << "Value for 'fig': " << value << endl;
-   //}
-   //catch (const std::runtime_error& e) {
-   //    cout << "'fig' 없음" << endl;
-   //}
-
-   //// 특정 키에 해당하는 노드를 삭제
-   //myMap.remove("cherry");
-   //cout << "'cherry' 제거 후 중위순회 : ";
-   //myMap.inOrderTraversal(myMap.root);
-   //cout << endl;
 #pragma endregion
 
-    return 0;
+
+#pragma region MyUnorderedMap
+
+//MyUnorderedMap<const char*, int> myMap;
+//
+//// 값 삽입
+//myMap.insert(makePair("apple", 10));
+//myMap.insert(makePair("banana", 20));
+//myMap.insert(makePair("cherry", 30));
+//
+//// operator[]로 값 접근 및 수정
+//myMap["banana"] = 25;
+//
+//// 검색 및 출력
+//int value;
+//if (myMap.find("apple", value))
+//{
+//    cout << "apple: " << value << endl;
+//}
+//else
+//{
+//    cout << "apple not found" << endl;
+//}
+//
+//if (myMap.find("banana", value))
+//{
+//    cout << "banana: " << value << endl;
+//}
+//else
+//{
+//    cout << "banana not found" << endl;
+//}
+//
+//// 값 삭제
+//myMap.erase("banana");
+//
+//if (myMap.find("banana", value))
+//{
+//    cout << "banana: " << value << endl;
+//}
+//else
+//{
+//    cout << "banana not found" << endl;
+//}
+
+#pragma endregion
+
+#pragma region MyUnorderedSet
+MyUS :: MyUnorderedSet<string> mySet;
+
+// 요소 삽입
+mySet.insert("apple");
+mySet.insert("banana");
+mySet.insert("cherry");
+
+// 이미 있는 요소 삽입 시도
+mySet.insert("banana");  // 중복된 요소는 삽입되지 않음
+
+// 검색 및 출력
+if (mySet.find("apple"))
+{
+    cout << "apple found" << endl;
+}
+else
+{
+    cout << "apple not found" << endl;
+}
+
+if (mySet.find("banana"))
+{
+    cout << "banana found" << endl;
+}
+else
+{
+    cout << "banana not found" << endl;
+}
+
+if (mySet.find("orange"))
+{
+    cout << "orange found" << endl;
+}
+else
+{
+    cout << "orange not found" << endl;
+}
+
+// 요소 삭제
+mySet.erase("banana");
+
+// 삭제 후 검색
+if (mySet.find("banana"))
+{
+    cout << "banana found" << endl;
+}
+else
+{
+    cout << "banana not found" << endl;
+}
+
+#pragma endregion
+
+return 0;
 }

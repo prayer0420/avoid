@@ -4,34 +4,35 @@ using namespace std;
 
 namespace MySet
 {
+    template<typename T>
     struct Node
     {
-        int value;
+        T value;
         Node* left;
         Node* right;
         Node* parent;
 
-        Node(int v, Node* p = nullptr) : value(v), left(nullptr), right(nullptr), parent(p) {}
+        Node(T v, Node* p = nullptr) : value(v), left(nullptr), right(nullptr), parent(p) {}
     };
 
-    // 중복된 값을 허용하지 않으며, 삽입된 값은 자동으로 정렬
+    template<typename T>
     class MySet
     {
     public:
-        Node* root = nullptr;  // 트리의 루트 노드를 가리키는 포인터
+        Node<T>* root = nullptr;
 
         // 삽입 함수
-        void insert(int value) {
+        void insert(T value) {
 
             // 처음 삽입하는 값이라면, 루트 노드로 설정
             if (root == nullptr)
             {
-                root = new Node(value);
+                root = new Node<T>(value);
                 return;
             }
 
-            Node* compareNode = root;  // 루트부터 시작해서 트리를 탐색
-            Node* parentNode = nullptr; // 부모 노드를 추적하기 위한 포인터
+            Node<T>* compareNode = root;  // 루트부터 시작해서 트리를 탐색
+            Node<T>* parentNode = nullptr; // 부모 노드를 추적하기 위한 포인터
 
             while (compareNode != nullptr)
             {
@@ -43,7 +44,7 @@ namespace MySet
                     if (compareNode->left == nullptr)
                     {
                         // 왼쪽 자식이 없으면 새로운 노드를 이 위치에 삽입하고, 부모를 설정
-                        compareNode->left = new Node(value, compareNode); // 부모 노드를 설정
+                        compareNode->left = new Node<T>(value, compareNode); // 부모 노드를 설정
                         return;
                     }
                     compareNode = compareNode->left; // 왼쪽 자식으로 이동
@@ -54,7 +55,7 @@ namespace MySet
                     if (compareNode->right == nullptr)
                     {
                         // 오른쪽 자식이 없으면 새로운 노드를 이 위치에 삽입하고, 부모를 설정
-                        compareNode->right = new Node(value, compareNode); // 부모 노드를 설정
+                        compareNode->right = new Node<T>(value, compareNode); // 부모 노드를 설정
                         return;
                     }
                     compareNode = compareNode->right; // 오른쪽 자식으로 이동
@@ -68,9 +69,9 @@ namespace MySet
         }
 
         // 값이 포함되어있는지 확인하는 함수
-        bool contains(int value)
+        bool contains(T value)
         {
-            Node* compareNode = root;  // 루트부터 시작해서 트리를 탐색
+            Node<T>* compareNode = root;  // 루트부터 시작해서 트리를 탐색
 
             while (compareNode != nullptr)  // 다 찾아봤는데도 없으면 종료
             {
@@ -91,7 +92,7 @@ namespace MySet
         }
 
         // 중위 순회 함수: 왼쪽 자식 -> 현재 노드 -> 오른쪽 자식 순서로 방문 (오름차순 출력)
-        void inOrderTraversal(Node* node)
+        void inOrderTraversal(Node<T>* node)
         {
             if (node == nullptr)
                 return;  // 노드가 null이면 아무것도 하지 않음
@@ -102,24 +103,25 @@ namespace MySet
         }
 
         // 노드 삭제 함수
-        void remove(int value)
+        void remove(T value)
         {
-            root = removeNode(root, value);
+            removeNode(root, value);
         }
 
-        Node* removeNode(Node* node, int value)
+        void removeNode(Node<T>*& node, T value)
         {
-            if (node == nullptr) return nullptr;
+            if (node == nullptr)
+                return;
 
             if (value < node->value)
             {
                 // 삭제할 값이 현재 노드보다 작으면 왼쪽으로 이동
-                node->left = removeNode(node->left, value);
+                removeNode(node->left, value);
             }
             else if (value > node->value)
             {
                 // 삭제할 값이 현재 노드보다 크면 오른쪽으로 이동
-                node->right = removeNode(node->right, value);
+                removeNode(node->right, value);
             }
             else
             {
@@ -137,35 +139,34 @@ namespace MySet
                             node->parent->right = nullptr; // 부모의 오른쪽 자식으로부터 제거
                     }
                     delete node;
-                    return nullptr;
                 }
                 // 하나의 자식만 있는 경우
                 else if (node->left == nullptr)
                 {
-                    Node* temp = node->right;  // 오른쪽 자식으로 대체
+                    Node<T>* temp = node->right;  // 오른쪽 자식으로 대체
                     temp->parent = node->parent; // 자식의 부모를 현재 노드의 부모로 설정
                     delete node;
-                    return temp;
+                    node = temp;
                 }
                 else if (node->right == nullptr)
                 {
-                    Node* temp = node->left;  // 왼쪽 자식으로 대체
+                    Node<T>* temp = node->left;  // 왼쪽 자식으로 대체
                     temp->parent = node->parent; // 자식의 부모를 현재 노드의 부모로 설정
                     delete node;
-                    return temp;
+                    node = temp;
                 }
-
-                // 두 개의 자식을 가진 경우, 오른쪽 서브트리에서 최소값을 찾음
-                Node* temp = findMin(node->right);
-                node->value = temp->value;
-
-                node->right = removeNode(node->right, temp->value);
+                else
+                {
+                    // 두 개의 자식을 가진 경우, 오른쪽 서브트리에서 최소값을 찾음
+                    Node<T>* temp = findMin(node->right);
+                    node->value = temp->value;
+                    removeNode(node->right, temp->value);
+                }
             }
-            return node;
         }
 
         // 오른쪽 서브트리에서 가장 작은 값을 가진 노드를 찾는 함수
-        Node* findMin(Node* node)
+        Node<T>* findMin(Node<T>* node)
         {
             while (node->left != nullptr)
             {

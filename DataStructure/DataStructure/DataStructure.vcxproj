@@ -137,6 +137,8 @@
     <ClInclude Include="MySet.h" />
     <ClInclude Include="MyStack.h" />
     <ClInclude Include="MyString.h" />
+    <ClInclude Include="MyUnorderedMap.h" />
+    <ClInclude Include="MyUnorderedSet.h" />
     <ClInclude Include="MyVector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

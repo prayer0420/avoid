@@ -81,7 +81,7 @@ namespace BST
         // 값 삭제
         void remove(int value)
         {
-            root = removeNode(root, value);
+            removeNode(root, value);
         }
 
         // 중위 순회 (In-order Traversal)
@@ -94,39 +94,58 @@ namespace BST
         }
 
     private:
-        Node* removeNode(Node* node, int value)
+        void removeNode(Node* &node, int value)
         {
-            if (node == nullptr) return nullptr;
+            if (node == nullptr) 
+                return;
 
             if (value < node->value)
             {
-                node->left = removeNode(node->left, value);
+                removeNode(node->left, value);
             }
             else if (value > node->value)
             {
-                node->right = removeNode(node->right, value);
+                removeNode(node->right, value);
             }
-            else {
-                if (node->left == nullptr)
+            else 
+            {
+                // 자식이 없는 경우 (리프 노드)
+                if (node->left == nullptr && node->right == nullptr)
+                {
+                    // 부모 노드에서 이 노드를 제거
+                    if (node->parent != nullptr)
+                    {
+                        if (node->parent->left == node)
+                            node->parent->left = nullptr;  // 부모의 왼쪽 자식으로부터 제거
+                        else
+                            node->parent->right = nullptr; // 부모의 오른쪽 자식으로부터 제거
+                    }
+                    delete node;
+                }
+                //자식이 오른쪽에만 있는 경우
+                else if (node->left == nullptr)
                 {
                     Node* temp = node->right;
-                    if (temp != nullptr) temp->parent = node->parent; // 자식의 부모를 현재 노드의 부모로 설정
+                    temp->parent = node->parent; // 자식의 부모를 현재 노드의 부모로 설정
                     delete node;
-                    return temp;
+                    node = temp;
                 }
+                //자식이 왼쪽에만 있는 경우
                 else if (node->right == nullptr)
                 {
                     Node* temp = node->left;
-                    if (temp != nullptr) temp->parent = node->parent; // 자식의 부모를 현재 노드의 부모로 설정
+                    temp->parent = node->parent; // 자식의 부모를 현재 노드의 부모로 설정
                     delete node;
-                    return temp;
+                    node = temp;
                 }
-
-                Node* temp = findMin(node->right);
-                node->value = temp->value;
-                node->right = removeNode(node->right, temp->value);
+                //자식이 둘다 있는 경우
+                else
+                {
+                    Node* temp = findMin(node->right);
+                    node->value = temp->value;
+                    removeNode(node->right, temp->value);
+                }
             }
-            return node;
         }
 
         // 오른쪽 서브트리에서 가장 작은 값을 가진 노드를 찾는 함수
