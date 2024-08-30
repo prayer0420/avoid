@@ -1,7 +1,4 @@
-﻿// DataStructure.cpp : 이 파일에는 'main' 함수가 포함됩니다. 거기서 프로그램 실행이 시작되고 종료됩니다.
-//
-
-#include <iostream>
+﻿#include <iostream>
 #include "MyList.h"
 #include "MyVector.h"
 #include "MyBst.h"
@@ -12,6 +9,8 @@
 #include "MyMap.h"
 #include "MyUnorderedMap.h"
 #include "MyUnorderedSet.h"
+#include "MyPriorityQueue.h"
+
 using namespace std;
 
 
@@ -206,58 +205,79 @@ int main()
 #pragma endregion
 
 #pragma region MyUnorderedSet
-MyUS :: MyUnorderedSet<string> mySet;
-
-// 요소 삽입
-mySet.insert("apple");
-mySet.insert("banana");
-mySet.insert("cherry");
-
-// 이미 있는 요소 삽입 시도
-mySet.insert("banana");  // 중복된 요소는 삽입되지 않음
-
-// 검색 및 출력
-if (mySet.find("apple"))
-{
-    cout << "apple found" << endl;
-}
-else
-{
-    cout << "apple not found" << endl;
-}
-
-if (mySet.find("banana"))
-{
-    cout << "banana found" << endl;
-}
-else
-{
-    cout << "banana not found" << endl;
-}
-
-if (mySet.find("orange"))
-{
-    cout << "orange found" << endl;
-}
-else
-{
-    cout << "orange not found" << endl;
-}
-
-// 요소 삭제
-mySet.erase("banana");
-
-// 삭제 후 검색
-if (mySet.find("banana"))
-{
-    cout << "banana found" << endl;
-}
-else
-{
-    cout << "banana not found" << endl;
-}
+//MyUS :: MyUnorderedSet<string> mySet;
+//// 요소 삽입
+//mySet.insert("apple");
+//mySet.insert("banana");
+//mySet.insert("cherry");
+//
+//// 이미 있는 요소 삽입 시도
+//mySet.insert("banana");  // 중복된 요소는 삽입되지 않음
+//
+//// 검색 및 출력
+//if (mySet.find("apple"))
+//{
+//    cout << "apple found" << endl;
+//}
+//else
+//{
+//    cout << "apple not found" << endl;
+//}
+//
+//if (mySet.find("banana"))
+//{
+//    cout << "banana found" << endl;
+//}
+//else
+//{
+//    cout << "banana not found" << endl;
+//}
+//
+//if (mySet.find("orange"))
+//{
+//    cout << "orange found" << endl;
+//}
+//else
+//{
+//    cout << "orange not found" << endl;
+//}
+//
+//// 요소 삭제
+//mySet.erase("banana");
+//
+//// 삭제 후 검색
+//if (mySet.find("banana"))
+//{
+//    cout << "banana found" << endl;
+//}
+//else
+//{
+//    cout << "banana not found" << endl;
+//}
 
 #pragma endregion
+
+#pragma region  MyPriorityQueue
+
+MyPriorityQueue<int, greater<int>> MPQ;
+ 
+MPQ.push(5);
+MPQ.push(2);
+MPQ.push(6);
+MPQ.push(8);
+MPQ.push(3);
+MPQ.push(9);
+MPQ.push(4);
+MPQ.push(1);
+MPQ.printHeap();
+
+MPQ.pop();
+
+MPQ.printHeap();
+
+#pragma endregion
+
+
 
 return 0;
 }

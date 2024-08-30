@@ -3,48 +3,40 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MySet.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\MySet.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyMap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\MyMap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyUnorderedSet.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\MyUnorderedSet.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyUnorderedMap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\MyUnorderedMap.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyPriorityQueue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\MyPriorityQueue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\DataStructure.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\DataStructure.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyVector.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\MyVector.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{70BC8ABE-A186-4A6A-ADDE-1415421BC2F3}|SortAlgorithms\\SortAlgorithms.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\SortAlgorithms.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{70BC8ABE-A186-4A6A-ADDE-1415421BC2F3}|SortAlgorithms\\SortAlgorithms.vcxproj|solutionrelative:SortAlgorithms\\SortAlgorithms.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyBST.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\MyBST.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{70BC8ABE-A186-4A6A-ADDE-1415421BC2F3}|SortAlgorithms\\SortAlgorithms.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\QuickSort.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{70BC8ABE-A186-4A6A-ADDE-1415421BC2F3}|SortAlgorithms\\SortAlgorithms.vcxproj|solutionrelative:SortAlgorithms\\QuickSort.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyList.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\MyList.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{70BC8ABE-A186-4A6A-ADDE-1415421BC2F3}|SortAlgorithms\\SortAlgorithms.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\HeapSort.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{70BC8ABE-A186-4A6A-ADDE-1415421BC2F3}|SortAlgorithms\\SortAlgorithms.vcxproj|solutionrelative:SortAlgorithms\\HeapSort.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyQueue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\MyQueue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{70BC8ABE-A186-4A6A-ADDE-1415421BC2F3}|SortAlgorithms\\SortAlgorithms.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\MergeSort.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{70BC8ABE-A186-4A6A-ADDE-1415421BC2F3}|SortAlgorithms\\SortAlgorithms.vcxproj|solutionrelative:SortAlgorithms\\MergeSort.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyStack.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\MyStack.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyString.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\MyString.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyBST.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\MyBST.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{70BC8ABE-A186-4A6A-ADDE-1415421BC2F3}|SortAlgorithms\\SortAlgorithms.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\BubbleSort.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{70BC8ABE-A186-4A6A-ADDE-1415421BC2F3}|SortAlgorithms\\SortAlgorithms.vcxproj|solutionrelative:SortAlgorithms\\BubbleSort.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -63,138 +55,115 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "MyMap.h",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyMap.h",
-              "RelativeDocumentMoniker": "DataStructure\\MyMap.h",
-              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyMap.h",
-              "RelativeToolTip": "DataStructure\\MyMap.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAxAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-29T09:27:49.166Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "MySet.h",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MySet.h",
-              "RelativeDocumentMoniker": "DataStructure\\MySet.h",
-              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MySet.h",
-              "RelativeToolTip": "DataStructure\\MySet.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-29T08:27:06.618Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "MyUnorderedSet.h",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyUnorderedSet.h",
-              "RelativeDocumentMoniker": "DataStructure\\MyUnorderedSet.h",
-              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyUnorderedSet.h",
-              "RelativeToolTip": "DataStructure\\MyUnorderedSet.h",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-29T07:17:07.195Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MyUnorderedMap.h",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyUnorderedMap.h",
-              "RelativeDocumentMoniker": "DataStructure\\MyUnorderedMap.h",
-              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyUnorderedMap.h",
-              "RelativeToolTip": "DataStructure\\MyUnorderedMap.h",
-              "ViewState": "AQIAACEAAAAAAAAAAAAqwEAAAAAKAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-29T07:00:38.316Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "MyBST.h",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyBST.h",
-              "RelativeDocumentMoniker": "DataStructure\\MyBST.h",
-              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyBST.h",
-              "RelativeToolTip": "DataStructure\\MyBST.h",
-              "ViewState": "AQIAAGwAAAAAAAAAAAAAAHkAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-28T13:39:11.444Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "MyString.h",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyString.h",
-              "RelativeDocumentMoniker": "DataStructure\\MyString.h",
-              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyString.h",
-              "RelativeToolTip": "DataStructure\\MyString.h",
-              "ViewState": "AQIAAGsAAAAAAAAAAAAAAJIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-27T07:38:50.326Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "MyQueue.h",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyQueue.h",
-              "RelativeDocumentMoniker": "DataStructure\\MyQueue.h",
-              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyQueue.h",
-              "RelativeToolTip": "DataStructure\\MyQueue.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAG0AAAASAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-25T12:15:28.583Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "MyStack.h",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyStack.h",
-              "RelativeDocumentMoniker": "DataStructure\\MyStack.h",
-              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyStack.h",
-              "RelativeToolTip": "DataStructure\\MyStack.h",
-              "ViewState": "AQIAAD8AAAAAAAAAAAAiwF0AAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-25T11:16:52.549Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MyList.h",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyList.h",
-              "RelativeDocumentMoniker": "DataStructure\\MyList.h",
-              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyList.h",
-              "RelativeToolTip": "DataStructure\\MyList.h",
-              "ViewState": "AQIAANYAAAAAAAAAAADwv+8AAAAfAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-11T22:51:25.625Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MyVector.h",
-              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyVector.h",
-              "RelativeDocumentMoniker": "DataStructure\\MyVector.h",
-              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyVector.h",
-              "RelativeToolTip": "DataStructure\\MyVector.h",
-              "ViewState": "AQIAAEQBAAAAAAAAAADwv14BAAATAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-11T22:50:54.631Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
               "Title": "DataStructure.cpp",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\DataStructure.cpp",
               "RelativeDocumentMoniker": "DataStructure\\DataStructure.cpp",
               "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\DataStructure.cpp",
               "RelativeToolTip": "DataStructure\\DataStructure.cpp",
-              "ViewState": "AQIAAL8AAAAAAAAAAAAcwNAAAAAHAAAA",
+              "ViewState": "AQIAANsAAAAAAAAAAAAAAHkAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-11T22:50:25.391Z"
+              "WhenOpened": "2024-08-30T10:41:00.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MyPriorityQueue.h",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyPriorityQueue.h",
+              "RelativeDocumentMoniker": "DataStructure\\MyPriorityQueue.h",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyPriorityQueue.h",
+              "RelativeToolTip": "DataStructure\\MyPriorityQueue.h",
+              "ViewState": "AQIAACsAAAAAAAAAAAAWwEgAAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-30T10:28:21.939Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HeapSort.h",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\HeapSort.h",
+              "RelativeDocumentMoniker": "SortAlgorithms\\HeapSort.h",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\HeapSort.h",
+              "RelativeToolTip": "SortAlgorithms\\HeapSort.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADIAAAAyAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-30T10:05:48.3Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MyBST.h",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyBST.h",
+              "RelativeDocumentMoniker": "DataStructure\\MyBST.h",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyBST.h",
+              "RelativeToolTip": "DataStructure\\MyBST.h",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-30T06:54:25.098Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MyStack.h",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyStack.h",
+              "RelativeDocumentMoniker": "DataStructure\\MyStack.h",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyStack.h",
+              "RelativeToolTip": "DataStructure\\MyStack.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-30T06:54:23.127Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "QuickSort.h",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\QuickSort.h",
+              "RelativeDocumentMoniker": "SortAlgorithms\\QuickSort.h",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\QuickSort.h",
+              "RelativeToolTip": "SortAlgorithms\\QuickSort.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-30T03:50:02.862Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MergeSort.h",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\MergeSort.h",
+              "RelativeDocumentMoniker": "SortAlgorithms\\MergeSort.h",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\MergeSort.h",
+              "RelativeToolTip": "SortAlgorithms\\MergeSort.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-30T03:11:39.678Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "BubbleSort.h",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\BubbleSort.h",
+              "RelativeDocumentMoniker": "SortAlgorithms\\BubbleSort.h",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\BubbleSort.h",
+              "RelativeToolTip": "SortAlgorithms\\BubbleSort.h",
+              "ViewState": "AQIAABcAAAAAAAAAAAAowDgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-29T12:21:33.833Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SortAlgorithms.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\SortAlgorithms.cpp",
+              "RelativeDocumentMoniker": "SortAlgorithms\\SortAlgorithms.cpp",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\SortAlgorithms.cpp",
+              "RelativeToolTip": "SortAlgorithms\\SortAlgorithms.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-29T12:20:54.697Z",
+              "EditorCaption": ""
             }
           ]
         }
