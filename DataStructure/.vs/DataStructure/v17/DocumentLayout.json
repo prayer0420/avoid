@@ -3,6 +3,42 @@
   "WorkspaceRootPath": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B7C8F63E-0765-47D3-975B-494DA324825E}|Maze\\Maze.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B7C8F63E-0765-47D3-975B-494DA324825E}|Maze\\Maze.vcxproj|solutionrelative:Maze\\pch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7C8F63E-0765-47D3-975B-494DA324825E}|Maze\\Maze.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\pch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B7C8F63E-0765-47D3-975B-494DA324825E}|Maze\\Maze.vcxproj|solutionrelative:Maze\\pch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7C8F63E-0765-47D3-975B-494DA324825E}|Maze\\Maze.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\ConsoleHelper.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B7C8F63E-0765-47D3-975B-494DA324825E}|Maze\\Maze.vcxproj|solutionrelative:Maze\\ConsoleHelper.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7C8F63E-0765-47D3-975B-494DA324825E}|Maze\\Maze.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\Board.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B7C8F63E-0765-47D3-975B-494DA324825E}|Maze\\Maze.vcxproj|solutionrelative:Maze\\Board.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7C8F63E-0765-47D3-975B-494DA324825E}|Maze\\Maze.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\Types.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B7C8F63E-0765-47D3-975B-494DA324825E}|Maze\\Maze.vcxproj|solutionrelative:Maze\\Types.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7C8F63E-0765-47D3-975B-494DA324825E}|Maze\\Maze.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\ConsoleHelper.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B7C8F63E-0765-47D3-975B-494DA324825E}|Maze\\Maze.vcxproj|solutionrelative:Maze\\ConsoleHelper.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7C8F63E-0765-47D3-975B-494DA324825E}|Maze\\Maze.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\Board.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B7C8F63E-0765-47D3-975B-494DA324825E}|Maze\\Maze.vcxproj|solutionrelative:Maze\\Board.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7C8F63E-0765-47D3-975B-494DA324825E}|Maze\\Maze.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\Maze.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B7C8F63E-0765-47D3-975B-494DA324825E}|Maze\\Maze.vcxproj|solutionrelative:Maze\\Maze.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B7C8F63E-0765-47D3-975B-494DA324825E}|Maze\\Maze.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\Types.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{B7C8F63E-0765-47D3-975B-494DA324825E}|Maze\\Maze.vcxproj|solutionrelative:Maze\\Types.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyPriorityQueue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{32D73555-5D6A-4E4A-A9C0-7F3A8B81D572}|DataStructure\\DataStructure.vcxproj|solutionrelative:DataStructure\\MyPriorityQueue.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -46,15 +82,132 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 4,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Types.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\Types.cpp",
+              "RelativeDocumentMoniker": "Maze\\Types.cpp",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\Types.cpp",
+              "RelativeToolTip": "Maze\\Types.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-31T14:43:23.474Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Board.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\Board.cpp",
+              "RelativeDocumentMoniker": "Maze\\Board.cpp",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\Board.cpp",
+              "RelativeToolTip": "Maze\\Board.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACAAAAADAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-31T14:41:47.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "pch.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\pch.cpp",
+              "RelativeDocumentMoniker": "Maze\\pch.cpp",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\pch.cpp",
+              "RelativeToolTip": "Maze\\pch.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-31T14:41:07.534Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Types.h",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\Types.h",
+              "RelativeDocumentMoniker": "Maze\\Types.h",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\Types.h",
+              "RelativeToolTip": "Maze\\Types.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-31T14:41:28.86Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "pch.h",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\pch.h",
+              "RelativeDocumentMoniker": "Maze\\pch.h",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\pch.h",
+              "RelativeToolTip": "Maze\\pch.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-31T14:41:02.015Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ConsoleHelper.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\ConsoleHelper.cpp",
+              "RelativeDocumentMoniker": "Maze\\ConsoleHelper.cpp",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\ConsoleHelper.cpp",
+              "RelativeToolTip": "Maze\\ConsoleHelper.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-31T14:40:25.63Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{ebe3f1d5-feac-4131-bf03-0e85ffb89a89}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
+              "Title": "ConsoleHelper.h",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\ConsoleHelper.h",
+              "RelativeDocumentMoniker": "Maze\\ConsoleHelper.h",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\ConsoleHelper.h",
+              "RelativeToolTip": "Maze\\ConsoleHelper.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-31T14:40:18.267Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Board.h",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\Board.h",
+              "RelativeDocumentMoniker": "Maze\\Board.h",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\Board.h",
+              "RelativeToolTip": "Maze\\Board.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-08-31T14:39:51.201Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Maze.cpp",
+              "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\Maze.cpp",
+              "RelativeDocumentMoniker": "Maze\\Maze.cpp",
+              "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\Maze\\Maze.cpp",
+              "RelativeToolTip": "Maze\\Maze.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-08-31T14:38:34.201Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "DataStructure.cpp",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\DataStructure.cpp",
               "RelativeDocumentMoniker": "DataStructure\\DataStructure.cpp",
@@ -62,25 +215,24 @@
               "RelativeToolTip": "DataStructure\\DataStructure.cpp",
               "ViewState": "AQIAANsAAAAAAAAAAAAAAHkAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-30T10:41:00.282Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-30T10:41:00.282Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 9,
               "Title": "MyPriorityQueue.h",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyPriorityQueue.h",
               "RelativeDocumentMoniker": "DataStructure\\MyPriorityQueue.h",
               "ToolTip": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyPriorityQueue.h",
               "RelativeToolTip": "DataStructure\\MyPriorityQueue.h",
-              "ViewState": "AQIAACsAAAAAAAAAAAAWwEgAAAAaAAAA",
+              "ViewState": "AQIAACsAAAAAAAAAAAAWwEwAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-08-30T10:28:21.939Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 13,
               "Title": "HeapSort.h",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\HeapSort.h",
               "RelativeDocumentMoniker": "SortAlgorithms\\HeapSort.h",
@@ -88,12 +240,11 @@
               "RelativeToolTip": "SortAlgorithms\\HeapSort.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADIAAAAyAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-30T10:05:48.3Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-30T10:05:48.3Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 16,
               "Title": "MyBST.h",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyBST.h",
               "RelativeDocumentMoniker": "DataStructure\\MyBST.h",
@@ -105,7 +256,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 15,
               "Title": "MyStack.h",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\DataStructure\\MyStack.h",
               "RelativeDocumentMoniker": "DataStructure\\MyStack.h",
@@ -117,7 +268,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 12,
               "Title": "QuickSort.h",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\QuickSort.h",
               "RelativeDocumentMoniker": "SortAlgorithms\\QuickSort.h",
@@ -125,12 +276,11 @@
               "RelativeToolTip": "SortAlgorithms\\QuickSort.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACUAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-08-30T03:50:02.862Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-30T03:50:02.862Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 14,
               "Title": "MergeSort.h",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\MergeSort.h",
               "RelativeDocumentMoniker": "SortAlgorithms\\MergeSort.h",
@@ -142,7 +292,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 17,
               "Title": "BubbleSort.h",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\BubbleSort.h",
               "RelativeDocumentMoniker": "SortAlgorithms\\BubbleSort.h",
@@ -154,7 +304,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
               "Title": "SortAlgorithms.cpp",
               "DocumentMoniker": "C:\\Users\\User\\Desktop\\avoid\\DataStructure\\SortAlgorithms\\SortAlgorithms.cpp",
               "RelativeDocumentMoniker": "SortAlgorithms\\SortAlgorithms.cpp",
@@ -162,8 +312,7 @@
               "RelativeToolTip": "SortAlgorithms\\SortAlgorithms.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-08-29T12:20:54.697Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-29T12:20:54.697Z"
             }
           ]
         }
