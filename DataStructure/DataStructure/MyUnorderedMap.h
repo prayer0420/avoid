@@ -64,6 +64,45 @@ namespace MyUM
             : table(TABLE_SIZE, nullptr)
         {}
 
+        ~MyUnorderedMap()
+        {
+            for (int i = 0; i < TABLE_SIZE; ++i)
+            {
+                Node<KeyType, ValueType>* current = table[i];
+                Node<KeyType, ValueType>* toDelete = current;
+                while (current != nullptr)
+                {
+                    current = current->next;
+                    delete toDelete;
+                    toDelete = current;
+                }
+            }
+        }
+
+        // 키가 없으면 기본값으로 새로 추가하여 반환
+        ValueType& operator[](const KeyType& key)
+        {
+            int hashIndex = hashFunction(key);
+            Node<KeyType, ValueType>* current = table[hashIndex];
+
+            // 리스트를 순회하면서 키를 찾기
+            while (current != nullptr)
+            {
+                if (current->data.first == key)
+                {
+                    return current->data.second;  // 키를 찾으면 값을 참조로 반환
+                }
+                current = current->next;
+            }
+
+            // 키가 없으면 새로 추가하고
+            //ValueType()은 해당타입에 맞게 초기화(기본값)하는 것
+            insert(makePair(key, ValueType()));
+            //참조로 반환
+            current = table[hashIndex];
+            return current->data.second;
+        }
+
         // insert 함수: 주어진 키-값 쌍을 해시 테이블에 삽입합니다.
         // 이미 존재하는 키라면 값을 업데이트합니다.
         void insert(const MyPair<KeyType, ValueType>& _myPair)
@@ -103,48 +142,6 @@ namespace MyUM
             }
         }
 
-        // 키가 없으면 기본값으로 새로 추가하여 반환
-        ValueType& operator[](const KeyType& key)
-        {
-            int hashIndex = hashFunction(key);
-            Node<KeyType, ValueType>* current = table[hashIndex];
-
-            // 리스트를 순회하면서 키를 찾기
-            while (current != nullptr)
-            {
-                if (current->data.first == key)
-                {
-                    return current->data.second;  // 키를 찾으면 값을 참조로 반환
-                }
-                current = current->next;
-            }
-
-            // 키가 없으면 새로 추가하고
-            //ValueType()은 해당타입에 맞게 초기화(기본값)하는 것
-            insert(makePair(key, ValueType()));
-            //참조로 반환
-            current = table[hashIndex];
-            return current->data.second;
-        }
-
-        bool find(const KeyType& key, ValueType& value)
-        {
-            int hashIndex = hashFunction(key);
-            Node<KeyType, ValueType>* current = table[hashIndex];
-
-            // 리스트를 순회하면서 키를 찾기
-            while (current != nullptr)
-            {
-                if (current->data.first == key)
-                {
-                    value = current->data.second;  // 키를 찾으면 값을 설정하고 true를 반환합니다.
-                    return true;
-                }
-                current = current->next;
-            }
-            return false;  // 키가 없으면 false를 반환
-        }
-
         void erase(const KeyType& key)
         {
             int hashIndex = hashFunction(key);
@@ -174,18 +171,26 @@ namespace MyUM
             }
         }
 
-        ~MyUnorderedMap()
+        ValueType& find(const KeyType& key)
         {
-            for (int i = 0; i < TABLE_SIZE; ++i)
+            int hashIndex = hashFunction(key);
+            Node<KeyType, ValueType>* current = table[hashIndex];
+
+            // 리스트를 순회하면서 키를 찾기
+            while (current != nullptr)
             {
-                Node<KeyType, ValueType>* current = table[i];
-                while (current != nullptr)
+                if (current->data.first == key)
                 {
-                    Node<KeyType, ValueType>* toDelete = current;
-                    current = current->next;
-                    delete toDelete;
+                    return current->data.second;
                 }
+                current = current->next;
             }
+            // 키가 없으면 새로 추가하고
+            //ValueType()은 해당타입에 맞게 초기화(기본값)하는 것
+            insert(makePair(key, ValueType()));
+            //참조로 반환
+            current = table[hashIndex];
+            return current->data.second;
         }
     };
 }

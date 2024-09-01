@@ -123,10 +123,8 @@ namespace MySet
                 // 삭제할 값이 현재 노드보다 크면 오른쪽으로 이동
                 removeNode(node->right, value);
             }
-            else
+            else // 삭제할 노드를 찾았을 때
             {
-                // 삭제할 노드를 찾았을 때
-
                 // 자식이 없는 경우 (리프 노드)
                 if (node->left == nullptr && node->right == nullptr)
                 {

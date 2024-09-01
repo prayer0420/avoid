@@ -2,8 +2,6 @@
 #include <vector>
 using namespace std;
 
-void shiftDown(vector<int>& v, int parentIdx, int size);
-
 void heapSort(vector<int>& v , int size) //O(N * logN)
 {
 	int i, temp;

@@ -25,7 +25,7 @@ int LeftPivotPartition(vector<int>& v, int left, int right)
 			low++;
 		while (high >= left+1 && pivot <= v[high])
 			high--;
-		if (low < high)
+		if (low > high)
 			Swap(v[low], v[high]);
 	}
 

@@ -45,6 +45,81 @@ namespace MyMap
     private:
         Node<KeyType, ValueType>* root;
 
+
+    public:
+        MyMap() : root(nullptr) {}
+
+        // 삽입 함수
+        void insert(const MyPair<KeyType, ValueType>& pair)
+        {
+            if (root == nullptr)
+            {
+                root = new Node<KeyType, ValueType>(pair);
+                return;
+            }
+
+            Node<KeyType, ValueType>* compareNode = root;
+            Node<KeyType, ValueType>* parentNode = nullptr;
+
+            while (compareNode != nullptr)
+            {
+                parentNode = compareNode;
+
+                if (pair.first < compareNode->data.first)
+                {
+                    if (compareNode->left == nullptr)
+                    {
+                        compareNode->left = new Node<KeyType, ValueType>(pair, parentNode);
+                        return;
+                    }
+                    compareNode = compareNode->left;
+                }
+                else if (pair.first > compareNode->data.first)
+                {
+                    if (compareNode->right == nullptr)
+                    {
+                        compareNode->right = new Node<KeyType, ValueType>(pair, parentNode);
+                        return;
+                    }
+                    compareNode = compareNode->right;
+                }
+                else
+                {
+                    // 키가 이미 존재하면 값을 업데이트
+                    compareNode->data.second = pair.second;
+                    return;
+                }
+            }
+        }
+
+        // operator[] 오버로딩
+        ValueType& operator[](const KeyType& key)
+        {
+            Node<KeyType, ValueType>* node = find(root, key);
+            if (node != nullptr)
+            {
+                return node->data.second;
+            }
+            else
+            {
+                // 키가 없으면 새로 추가하고 참조 반환
+                insert(makePair(key, ValueType())); // 기본 값을 ValueType()으로 초기화
+                node = find(root, key);
+                return node->data.second;
+            }
+        }
+
+        // 검색 함수
+        ValueType& search(const KeyType& key)
+        {
+            Node<KeyType, ValueType>* node = find(root, key);
+
+            if (node == nullptr)
+                throw runtime_error("Key not found");
+
+            return node->data.second;
+        }
+
         Node<KeyType, ValueType>* find(Node<KeyType, ValueType>* node, const KeyType& key)
         {
             if (node == nullptr || node->data.first == key)
@@ -61,6 +136,12 @@ namespace MyMap
             while (node->left != nullptr)
                 node = node->left;
             return node;
+        }
+
+        // 삭제 함수
+        void remove(const KeyType& key)
+        {
+            removeNode(root, key);
         }
 
         void removeNode(Node<KeyType, ValueType>*& node, const KeyType& key)
@@ -127,86 +208,6 @@ namespace MyMap
             inOrderTraversal(node->left);
             cout << node->data.first << ": " << node->data.second << " ";
             inOrderTraversal(node->right);
-        }
-
-    public:
-        MyMap() : root(nullptr) {}
-
-        // 삽입 함수
-        void insert(const MyPair<KeyType, ValueType>& pair)
-        {
-            if (root == nullptr)
-            {
-                root = new Node<KeyType, ValueType>(pair);
-                return;
-            }
-
-            Node<KeyType, ValueType>* parentNode = nullptr;
-            Node<KeyType, ValueType>* currentNode = root;
-
-            while (currentNode != nullptr)
-            {
-                parentNode = currentNode;
-
-                if (pair.first < currentNode->data.first)
-                {
-                    if (currentNode->left == nullptr)
-                    {
-                        currentNode->left = new Node<KeyType, ValueType>(pair, parentNode);
-                        return;
-                    }
-                    currentNode = currentNode->left;
-                }
-                else if (pair.first > currentNode->data.first)
-                {
-                    if (currentNode->right == nullptr)
-                    {
-                        currentNode->right = new Node<KeyType, ValueType>(pair, parentNode);
-                        return;
-                    }
-                    currentNode = currentNode->right;
-                }
-                else
-                {
-                    // 키가 이미 존재하면 값을 업데이트
-                    currentNode->data.second = pair.second;
-                    return;
-                }
-            }
-        }
-
-        // operator[] 오버로딩
-        ValueType& operator[](const KeyType& key)
-        {
-            Node<KeyType, ValueType>* node = find(root, key);
-            if (node != nullptr)
-            {
-                return node->data.second;
-            }
-            else
-            {
-                // 키가 없으면 새로 추가하고 참조 반환
-                insert(makePair(key, ValueType())); // 기본 값을 ValueType()으로 초기화
-                node = find(root, key);
-                return node->data.second;
-            }
-        }
-
-        // 검색 함수
-        ValueType& search(const KeyType& key)
-        {
-            Node<KeyType, ValueType>* node = find(root, key);
-
-            if (node == nullptr)
-                throw runtime_error("Key not found");
-
-            return node->data.second;
-        }
-
-        // 삭제 함수
-        void remove(const KeyType& key)
-        {
-            removeNode(root, key);
         }
 
         // 출력 함수 (중위 순회)
