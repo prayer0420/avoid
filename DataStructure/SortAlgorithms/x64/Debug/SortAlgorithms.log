@@ -1,6 +1,9 @@
 ﻿  SortAlgorithms.cpp
+C:\Users\User\Desktop\avoid\DataStructure\SortAlgorithms\BubbleSort.h(15,11): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Desktop\avoid\DataStructure\SortAlgorithms\BubbleSort.h(30,11): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Desktop\avoid\DataStructure\SortAlgorithms\BubbleSort.h(48,11): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\User\Desktop\avoid\DataStructure\SortAlgorithms\MergeSort.h(58,8): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Desktop\avoid\DataStructure\SortAlgorithms\QuickSort.h(40,12): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Desktop\avoid\DataStructure\SortAlgorithms\QuickSort.h(70,33): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Desktop\avoid\DataStructure\SortAlgorithms\QuickSort.h(80,13): warning C4244: '인수': 'time_t'에서 'unsigned int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Desktop\avoid\DataStructure\SortAlgorithms\QuickSort.h(108,34): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\User\Desktop\avoid\DataStructure\SortAlgorithms\SortAlgorithms.cpp(29,20): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   SortAlgorithms.vcxproj -> C:\Users\User\Desktop\avoid\DataStructure\x64\Debug\SortAlgorithms.exe

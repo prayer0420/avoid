@@ -37,13 +37,14 @@ public:
         v.reserve(100);
     }
 
-    //shift up : 자식 노드와 부모 노드를 비교
+    //shift up : 자식 노드가 올라가면서 부모 노드를 비교
     void shiftUp(int childIdx)
     {
         //Max Heap
         int parentIdx = (childIdx - 1) / 2;
         T temp;
 
+        //부모가 자식보다 작다면 스왑
         if (childIdx != 0 && _predicate(v[parentIdx],v[childIdx]))
         {
             temp = v[parentIdx];

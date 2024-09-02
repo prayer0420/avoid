@@ -134,13 +134,13 @@
     <ClCompile Include="Board.cpp" />
     <ClCompile Include="ConsoleHelper.cpp" />
     <ClCompile Include="Maze.cpp" />
-    <ClCompile Include="pch.cpp" />
-    <ClCompile Include="Types.cpp" />
+    <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Board.h" />
     <ClInclude Include="ConsoleHelper.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Types.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

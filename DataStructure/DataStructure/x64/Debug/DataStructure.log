@@ -2,5 +2,5 @@
 C:\Users\User\Desktop\avoid\DataStructure\DataStructure\MyQueue.h(97,13): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\User\Desktop\avoid\DataStructure\DataStructure\MyQueue.h(106,13): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
 C:\Users\User\Desktop\avoid\DataStructure\DataStructure\MyStack.h(96,12): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\User\Desktop\avoid\DataStructure\DataStructure\MyPriorityQueue.h(64,25): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\User\Desktop\avoid\DataStructure\DataStructure\MyPriorityQueue.h(65,25): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   DataStructure.vcxproj -> C:\Users\User\Desktop\avoid\DataStructure\x64\Debug\DataStructure.exe
