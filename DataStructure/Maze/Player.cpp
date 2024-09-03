@@ -81,7 +81,6 @@ void Player::CalculatePath_RightHand()
 			_dir = (_dir + 1) % DIR_COUNT;
 		}
 	}
-
 }
 
 void Player::CalculatePath_BFS()
@@ -98,19 +97,20 @@ void Player::CalculatePath_BFS()
 	};
 
 	const int32 size = _board->GetSize();
-	vector<vector<bool>> discovered(size, vector<bool>(size, false));
+	vector<vector<bool>> discovered(size, vector<bool>(size, false)); //찾았는지 
 
 	// extra)
 	// parent[y][x] = pos -> (y, x)는 Pos에 의해 발견됨.
 	vector<vector<Pos>> parent(size, vector<Pos>(size, Pos(-1, -1)));
 
-	queue<Pos> q;
+	queue<Pos> q; //큐 
 	q.push(pos);
-	discovered[pos.y][pos.x] = true;
-	parent[pos.y][pos.x] = pos;
+	discovered[pos.y][pos.x] = true; //처음은 간 곳
+	parent[pos.y][pos.x] = pos; //처음 부모는 자기 자신
 
 	while (q.empty() == false)
 	{
+		
 		pos = q.front();
 		q.pop();
 
@@ -118,39 +118,50 @@ void Player::CalculatePath_BFS()
 		if (pos == dest)
 			break;
 
+		//현재지점에서 상하좌우 순회하면서 경로 찾기
 		for (int32 dir = 0; dir < DIR_COUNT; dir++)
 		{
 			Pos nextPos = pos + front[dir];
+			
 			// 갈 수 있는 지역은 맞는지 확인
 			if (CanGo(nextPos) == false)
 				continue;
+
 			// 이미 다른 경로에 의해 발견한 지역인지 확인
 			if (discovered[nextPos.y][nextPos.x])
 				continue;
 
+			//여기까지오면 갈수 있는 곳, 발견되지 않는 곳
+			
 			q.push(nextPos);
-			discovered[nextPos.y][nextPos.x] = true;
-			parent[nextPos.y][nextPos.x] = pos;
+			discovered[nextPos.y][nextPos.x] = true; //이미 발견한 곳이라 체크
+			parent[nextPos.y][nextPos.x] = pos;  // 부모 설정
 		}
 	}
 
 	_path.clear();
+
+	//거꾸로 거슬러 올라가기
 	pos = dest;
 
 	while (true)
 	{
 		_path.push_back(pos);
 
-		// 시작점
+		// 시작점(자기자신이 부모인 곳은 시작점밖에 없음)
 		if (pos == parent[pos.y][pos.x])
 			break;
 
+		//자기를 부모지점으로 업데이트(계속 거꾸로 감)
 		pos = parent[pos.y][pos.x];
 	}
 
+
+	//이제 실제로 움직일 땐 거꾸로 이동하기
+
 	/*vector<Pos> temp(_path.size());
 	for (int i = 0; i < _path.size(); i++)
-		temp[i] = _path[_path.size() - 1 - i];
+		temp[i] = _path[_path.size() - 1 - i]; //뒤 요소부터 넣기
 
 	_path = temp;*/
 
