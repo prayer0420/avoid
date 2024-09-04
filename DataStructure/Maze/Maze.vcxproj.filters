@@ -45,5 +45,8 @@
     <ClInclude Include="DFS.h">
       <Filter>Board</Filter>
     </ClInclude>
+    <ClInclude Include="BFS.h">
+      <Filter>Board</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
